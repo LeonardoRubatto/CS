@@ -1,0 +1,8 @@
+# Redirections Netlify
+# Les URLs sans .html redirigent vers les fichiers HTML
+
+/confidentialite    /confidentialite.html   200
+/privacy            /confidentialite.html   301
+
+# Fallback 404
+/*  /404.html  404

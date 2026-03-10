@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="">
+<head>
+<meta charset="UTF-8">
+<script>
+(function(){
+  var t = localStorage.getItem('theme');
+  if(t === 'dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+  }
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de confidentialité — Coût Salarié</title>
+<meta name="description" content="Politique de confidentialité, RGPD et conditions d'utilisation de Coût Salarié. Vos données restent sur votre appareil.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://coutsalarie.fr/confidentialite.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+
+
+:root {
+  --blue: #1D4ED8;
+  --blue-d: #1e3a8a;
+  --green: #059669;
+  --green-l: #ECFDF5;
+  --red: #DC2626;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  --white: #FFFFFF;
+  --body-bg: #dde6ef;
+  --radius-sm: 8px;
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* --- DARK MODE MANUEL -------------------------------------- */
+[data-theme="dark"] {
+  --body-bg: #0f172a;
+  --white: #0a0e27;
+  --gray-50: #1a1f35;
+  --gray-100: #252d45;
+  --gray-200: #2f3a52;
+  --gray-300: #445066;
+  --gray-400: #5b6b82;
+  --gray-500: #7c8aa0;
+  --gray-700: #c5ccd5;
+  --gray-900: #e6ebf5;
+}
+
+[data-theme="dark"] body {
+  background: var(--body-bg);
+  color: var(--gray-900);
+}
+
+[data-theme="dark"] .legal-content,
+[data-theme="dark"] .toc,
+[data-theme="dark"] .legal-nav a,
+[data-theme="dark"] .subnav-bar a,
+[data-theme="dark"] table {
+  background: var(--white);
+  border-color: var(--gray-200);
+}
+
+[data-theme="dark"] th {
+  background: var(--gray-100);
+  color: var(--gray-900);
+  border-color: var(--gray-200);
+}
+
+[data-theme="dark"] td {
+  color: var(--gray-700);
+  border-color: var(--gray-200);
+}
+
+[data-theme="dark"] .legal-nav a,
+[data-theme="dark"] .subnav-bar a {
+  color: var(--gray-900);
+}
+
+[data-theme="dark"] .legal-nav a:hover,
+[data-theme="dark"] .subnav-bar a:hover {
+  background: var(--gray-100);
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] .muted,
+[data-theme="dark"] .small,
+[data-theme="dark"] .meta {
+  color: var(--gray-700);
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] strong {
+  color: var(--gray-900);
+}
+
+[data-theme="dark"] .info-box,
+[data-theme="dark"] .warning-box,
+[data-theme="dark"] .success-box
+
+/* bouton theme */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gray-200);
+  background: var(--white);
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.10);
+  transition: all .2s;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  border-color: var(--blue);
+  transform: scale(1.08);
+}
+
+
+
+
+body {
+  font-family: var(--font-main);
+  background: var(--body-bg);
+  color: var(--gray-900);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.legal-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.legal-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.legal-header p {
+  font-size: 15px;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+}
+
+.legal-nav {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.legal-nav a {
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1.5px solid var(--gray-200);
+  transition: all 150ms;
+}
+
+.legal-nav a:hover {
+  border-color: var(--blue);
+  background: #EFF6FF;
+}
+
+.legal-content {
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid var(--gray-200);
+  padding: 40px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.06);
+}
+
+.legal-section {
+  margin-bottom: 36px;
+}
+
+.legal-section h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--gray-100);
+}
+
+.legal-section h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-700);
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+
+.legal-section p {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.legal-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 12px;
+}
+
+.legal-section ul li {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.7;
+  margin-bottom: 8px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.legal-section ul li:before {
+  content: "▪";
+  position: absolute;
+  left: 8px;
+  color: var(--blue);
+  font-size: 12px;
+}
+
+.legal-section a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.legal-section a:hover {
+  text-decoration: underline;
+}
+
+.info-box {
+  background: #EFF6FF;
+  border: 1.5px solid #BFDBFE;
+  border-left: 4px solid var(--blue);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 20px 0;
+  font-size: 13px;
+  color: var(--blue-d);
+  line-height: 1.6;
+}
+
+.warning-box {
+  background: #FEF2F2;
+  border: 1.5px solid #FECACA;
+  border-left: 4px solid var(--red);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 20px 0;
+  font-size: 13px;
+  color: #991B1B;
+  line-height: 1.6;
+}
+
+.success-box {
+  background: var(--green-l);
+  border: 1.5px solid #A7F3D0;
+  border-left: 4px solid var(--green);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 20px 0;
+  font-size: 13px;
+  color: #065F46;
+  line-height: 1.6;
+}
+
+.toc {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 32px;
+}
+
+.toc h3 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--gray-500);
+  margin-bottom: 12px;
+}
+
+.toc ol {
+  list-style: decimal;
+  padding-left: 20px;
+}
+
+.toc ol li {
+  font-size: 13px;
+  color: var(--gray-700);
+  margin-bottom: 6px;
+}
+
+.toc ol li a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.toc ol li a:hover {
+  text-decoration: underline;
+}
+
+.last-update {
+  text-align: center;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-200);
+  font-size: 12px;
+  color: var(--gray-400);
+}
+
+
+
+/* Ajouts minimaux pour navigation interactive type legal.html */
+.subnav-bar {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 0 32px;
+}
+
+.subnav-bar a {
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1.5px solid var(--gray-200);
+  transition: all 150ms ease;
+}
+
+.subnav-bar a:hover {
+  border-color: var(--blue);
+  background: #EFF6FF;
+}
+
+.subnav-bar a.active {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+
+@media (max-width: 640px) {
+  .container { padding: 24px 16px; }
+  .legal-header h1 { font-size: 24px; }
+  .legal-content { padding: 24px; }
+  .legal-nav { flex-direction: column; }
+  .legal-nav a { width: 100%; text-align: center; }
+  .subnav-bar { flex-direction: column; }
+  .subnav-bar a { width: 100%; text-align: center; }
+}
+</style>
+</head>
+
+<body>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Basculer le mode sombre">
+  <span id="themeIcon">🌙</span>
+</button>
+<div class="container">
+
+  <div class="legal-header">
+    <h1>Données légales — Coût Salarié</h1>
+    <p>Protection de vos données personnelles et respect du RGPD</p>
+    <p><a href="/" style="color: var(--blue); text-decoration: none; font-weight: 600;">← Retour à l'accueil</a></p>
+  </div>
+
+  <nav class="subnav-bar" id="subnav-legal">
+    <a href="#mentions" data-target="mentions">Mentions légales</a>
+    <a href="#confidentialite" data-target="confidentialite" class="active">Politique de confidentialité</a>
+    <a href="#conditions" data-target="conditions">Conditions d'utilisation</a>
+    <a href="#contact" data-target="contact">Contact</a>
+  </nav>
+
+  <div class="legal-content">
+
+    <section id="mentions" class="tab-content">
+  <div class="legal-section">
+    <h2>Mentions légales</h2>
+
+    <p><strong>Éditeur du site :</strong> Leonardo Rubatto</p>
+    <p><strong>Statut :</strong> personne physique</p>
+    <p><strong>Ville de résidence :</strong> Paris, France</p>
+    <p><strong>Directeur de la publication :</strong> Leonardo Rubatto</p>
+
+    <p><strong>Contact :</strong> 
+      <a href="mailto:bonaventis@gmail.com">bonaventis@gmail.com</a>
+    </p>
+    <p><strong>Numéro de téléphone :</strong> +33 6 95 57 38 63</p>
+
+    <p><strong>Hébergement :</strong><br>
+    Cloudflare Inc.<br>
+    101 Townsend Street<br>
+    San Francisco, CA 94107<br>
+    United States
+    </p>
+
+    <p>
+    Le site est un outil web statique permettant de simuler le coût réel d’un salarié en France.
+    Le calculateur fonctionne entièrement dans le navigateur de l’utilisateur.
+    </p>
+
+    <p>
+    Aucune donnée saisie dans le calculateur n’est transmise à un serveur.
+    Les paramètres de simulation peuvent être sauvegardés localement dans le navigateur via localStorage.
+    </p>
+
+  </div>
+</section>
+
+    <section id="confidentialite" class="tab-content active">
+
+    <div class="toc">
+      <h3>Sommaire</h3>
+      <ol>
+        <li><a href="#1">Qui sommes-nous ?</a></li>
+        <li><a href="#2">Quelles données collectons-nous ?</a></li>
+        <li><a href="#3">Base légale du traitement</a></li>
+        <li><a href="#4">Stockage et sécurité des données</a></li>
+        <li><a href="#5">Vos droits RGPD</a></li>
+        <li><a href="#6">Cookies et technologies de suivi</a></li>
+        <li><a href="#7">Durée de conservation</a></li>
+        <li><a href="#8">Partage de vos données</a></li>
+        <li><a href="#9">Transferts internationaux</a></li>
+        <li><a href="#10">Contact et réclamation</a></li>
+      </ol>
+    </div>
+
+    <div class="legal-section" id="1">
+      <h2>1. Qui sommes-nous ?</h2>
+      <p><strong>Responsable du traitement :</strong> Leonardo Rubatto</p>
+<p><strong>Email :</strong> <a href="mailto:bonaventis@gmail.com">bonaventis@gmail.com</a></p>
+<p><strong>Ville :</strong> Paris, France</p>
+<p>L’éditeur du site est une personne physique.</p>
+    </div>
+
+    <div class="legal-section" id="2">
+      <h2>2. Quelles données collectons-nous ?</h2>
+      <h3>A. Données collectées directement</h3>
+      <p><strong>Données saisies dans le calculateur :</strong></p>
+        <ul>
+<li>Paramètres de simulation saisis par l’utilisateur (salaire, statut, contrat, etc.)</li>
+<li>Préférences utilisateur (thème, options)</li>
+<li>Consentement aux cookies</li>
+<li>Données techniques de navigation (adresse IP, navigateur, logs serveur)</li>
+<li>Adresse email si l’utilisateur contacte l’éditeur</li>
+</ul>
+
+<p><strong>Important :</strong> Les paramètres de simulation sont traités exclusivement dans le navigateur et ne sont pas transmis à un serveur.</p>
+      <p><strong>⚠️ Important :</strong> Ces données ne sont <strong>pas envoyées à nos serveurs</strong>. Elles restent uniquement sur votre appareil (navigateur local).</p>
+      <h3>B. Données techniques collectées automatiquement</h3>
+      <ul>
+        <li>Adresse IP (pour la sécurité du serveur)</li>
+        <li>Type de navigateur et système d'exploitation</li>
+        <li>Langue préférée</li>
+        <li>Heure et date de visite</li>
+        <li>Pages visitées (logs serveur)</li>
+      </ul>
+      
+      <h3>C. Données stockées localement</h3>
+      <p>Votre dernier calcul est sauvegardé dans le <strong>localStorage</strong> de votre navigateur (mémoire locale). Cette donnée :</p>
+      <ul>
+        <li>N'est jamais envoyée à nos serveurs</li>
+        <li>Est stockée exclusivement sur votre appareil</li>
+        <li>Vous pouvez la supprimer en effaçant les données du navigateur</li>
+      </ul>
+    </div>
+
+    <div class="legal-section" id="3">
+      <h2>3. Base légale du traitement</h2>
+      <p>Nous traitons vos données sur les bases juridiques suivantes :</p>
+      <ul>
+<li><strong>Consentement de l’utilisateur :</strong> pour les cookies et outils de mesure d’audience</li>
+<li><strong>Intérêt légitime de l’éditeur :</strong> pour la sécurité et le bon fonctionnement du site</li>
+<li><strong>Exécution du service demandé :</strong> pour le fonctionnement du calculateur</li>
+      </ul>
+    </div>
+
+    <div class="legal-section" id="4">
+      <h2>4. Stockage et sécurité des données</h2>
+      <div class="success-box">
+        ✅ <strong>Vos calculs restent confidentiels :</strong> Les données saisies dans le calculateur ne quittent jamais votre navigateur.
+      </div>
+      
+      <h3>Sécurité du site</h3>
+      <ul>
+        <li><strong>HTTPS :</strong> Chiffrage de tous les échanges (certificat SSL/TLS)</li>
+        <li><strong>CSP :</strong> Content Security Policy pour prévenir les attaques XSS</li>
+        <li><strong>HSTS :</strong> Strict-Transport-Security pour forcer HTTPS</li>
+        <li><strong>X-Frame-Options :</strong> Prévention du clickjacking</li>
+        <li><strong>Hébergement sécurisé :</strong> Cloudflare Inc. (CDN mondial, conformité RGPD via CCT/SCC)</li>
+      </ul>
+
+      <h3>Données de serveur</h3>
+      <p>Les logs serveur (IP, pages visitées, erreurs) sont :</p>
+      <ul>
+        <li>Stockés de manière chiffrée</li>
+        <li>Conservés 30 jours maximum</li>
+        <li>Jamais partagés avec des tiers</li>
+        <li>Utilisés exclusivement pour la sécurité et la performance</li>
+      </ul>
+    </div>
+
+    <div class="legal-section" id="5">
+      <h2>5. Vos droits RGPD</h2>
+      <div class="info-box">
+        Selon le RGPD, vous disposez des droits suivants concernant vos données personnelles.
+      </div>
+
+      <h3>Droit d'accès (art. 15 RGPD)</h3>
+      <p>Vous avez le droit d'obtenir une copie de vos données personnelles. Contactez-nous pour recevoir les informations que nous traitons vous concernant.</p>
+
+      <h3>Droit de rectification (art. 16 RGPD)</h3>
+      <p>Si vos données sont inexactes ou incomplètes, vous pouvez demander leur correction.</p>
+
+      <h3>Droit à l'oubli (art. 17 RGPD)</h3>
+      <p>Vous pouvez demander la suppression complète de vos données personnelles, sauf obligations légales.</p>
+
+      <h3>Droit à la limitation du traitement (art. 18 RGPD)</h3>
+      <p>Vous pouvez demander la restriction du traitement de vos données dans certains cas.</p>
+
+      <h3>Droit à la portabilité (art. 20 RGPD)</h3>
+      <p>Vous pouvez demander vos données dans un format structuré et portable (JSON, CSV, etc.).</p>
+
+      <h3>Droit d'opposition (art. 21 RGPD)</h3>
+      <p>Vous pouvez vous opposer au traitement de vos données à des fins de marketing ou d'analyse.</p>
+
+      <h3>Comment exercer vos droits ?</h3>
+      <p><strong>Écrivez à :</strong> <a href="mailto:bonaventis@gmail.com">bonaventis@gmail.com</a> en précisant :</p>
+      <ul>
+        <li>Votre demande (accès, suppression, portabilité, etc.)</li>
+        <li>Votre identité (ou email de contact)</li>
+        <li>La date approximative de votre dernière visite</li>
+      </ul>
+      <p><strong>Délai de réponse :</strong> Nous traiterons votre demande dans un délai de <strong>30 jours</strong>.</p>
+    </div>
+
+    <div class="legal-section" id="6">
+      <h2>6. Cookies et technologies de suivi</h2>
+      <h3>Types de cookies utilisés</h3>
+      <p><strong>Cookies essentiels (toujours activés) :</strong></p>
+      <ul>
+        <li><code>csx_v4</code> — Sauvegarde de votre dernier calcul (localStorage)</li>
+        <li><code>csx_cookies_v1</code> — Vos préférences de consentement cookies</li>
+      </ul>
+
+      <p><strong>Cookies tiers (partenaires affiliés) :</strong></p>
+      <ul>
+        <li>Si vous cliquez sur les liens vers PayFit, Alan ou Dougs, ces sites tiers sont susceptibles de déposer leurs propres cookies selon leurs politiques respectives. Coût Salarié ne contrôle pas ces cookies.</li>
+      </ul>
+
+      <h3>Gestion de vos cookies</h3>
+      <p>Au premier chargement, une bannière vous informe de l'utilisation des cookies essentiels. Vous pouvez :</p>
+      <ul>
+        <li><strong>Accepter :</strong> Vous confirmez l'utilisation des cookies de fonctionnement</li>
+        <li><strong>Rejeter :</strong> Le site fonctionne normalement, votre calcul ne sera pas sauvegardé entre les sessions</li>
+        <li><strong>Paramètres :</strong> Consulter le détail des cookies utilisés</li>
+      </ul>
+      <p><strong>Dans votre navigateur :</strong> Vous pouvez aussi gérer les cookies via les paramètres de confidentialité (Settings → Privacy → Cookies).</p>
+
+      <h3>Désactiver les cookies</h3>
+      <p>Vous pouvez interdire les cookies dans les paramètres de votre navigateur, mais cela affectera la sauvegarde de vos calculs.</p>
+    </div>
+
+    <div class="legal-section" id="7">
+      <h2>7. Durée de conservation des données</h2>
+      <table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px;">
+        <thead>
+          <tr style="background: var(--gray-100);">
+            <th style="padding: 10px; border: 1px solid var(--gray-200); text-align: left; font-weight: 700;">Type de donnée</th>
+            <th style="padding: 10px; border: 1px solid var(--gray-200); text-align: left; font-weight: 700;">Durée</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr>
+<td style="padding: 10px; border: 1px solid var(--gray-200);">Données stockées dans localStorage</td>
+<td style="padding: 10px; border: 1px solid var(--gray-200);">Jusqu’à suppression par l’utilisateur</td>
+</tr>
+
+<tr>
+<td style="padding: 10px; border: 1px solid var(--gray-200);">Cookies</td>
+<td style="padding: 10px; border: 1px solid var(--gray-200);">Maximum 6 mois</td>
+</tr>
+
+<tr>
+<td style="padding: 10px; border: 1px solid var(--gray-200);">Logs serveur</td>
+<td style="padding: 10px; border: 1px solid var(--gray-200);">Maximum 30 jours (via Cloudflare)</td>
+</tr>
+
+<tr>
+<td style="padding: 10px; border: 1px solid var(--gray-200);">Emails envoyés par l’utilisateur</td>
+<td style="padding: 10px; border: 1px solid var(--gray-200);">Maximum 3 ans</td>
+</tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="legal-section" id="8">
+      <h2>8. Partage de vos données</h2>
+      <p><strong>Vos données ne sont jamais vendues, louées ou partagées.</strong></p>
+      
+      <h3>Tiers autorisés à accéder à vos données</h3>
+      <ul>
+        <li><strong>Hébergeur/CDN (Cloudflare Inc.) :</strong> Pour l'infrastructure technique (adresse IP, logs de sécurité uniquement)</li>
+        <li><strong>Autorités légales :</strong> Si légalement requises (mandat judiciaire, CNIL)</li>
+        <li><strong>Partenaires de cookies :</strong> Google (Analytics) — seulement si vous acceptez</li>
+      </ul>
+
+      <h3>Partenaires affiliés</h3>
+      <p>Les liens vers <strong>PayFit, Alan, Dougs</strong> sont affiliés. En cliquant, vous allez sur leurs sites respectifs soumis à leurs propres politiques de confidentialité. Coût Salarié n'est pas responsable de leur traitement des données.</p>
+    </div>
+
+    <div class="legal-section" id="9">
+      <h2>9. Transferts internationaux</h2>
+      <p><strong>Hébergeur et CDN :</strong> Le site est distribué via Cloudflare Inc. (101 Townsend Street, San Francisco, CA 94107, USA). Cloudflare dispose d'une conformité RGPD documentée via des Clauses Contractuelles Types (CCT/SCC) conformément aux articles 46 du RGPD.</p>
+      <p>Les données techniques transitant par Cloudflare (adresse IP, logs de sécurité) bénéficient de garanties contractuelles adéquates. Aucun autre transfert vers des pays tiers n'est effectué sans base légale appropriée.</p>
+    </div>
+
+    <div class="legal-section" id="10">
+      <h2>10. Contact et réclamation</h2>
+      <h3>Questions sur vos données ?</h3>
+      <p><strong>Email :</strong> <a href="mailto:bonaventis@gmail.com">bonaventis@gmail.com</a></p>
+      <p><strong>Délai :</strong> Réponse sous 30 jours</p>
+
+      <h3>Déposer une réclamation auprès de la CNIL</h3>
+      <p>Si vous estimez que nous violons vos droits, vous pouvez déposer une plainte auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) :</p>
+      <p>
+        <strong>CNIL</strong><br>
+        3 Place de Fontenoy<br>
+        75007 Paris, France<br>
+        <strong>Tel :</strong> +33 (0)1 53 73 22 22<br>
+        <strong>Site :</strong> <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>
+      </p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Modifications de cette politique</h2>
+      <p>Coût Salarié peut modifier cette politique à tout moment. Les changements seront annoncés sur cette page avec la date de mise à jour.</p>
+    </div>
+
+    </section>
+
+    <section id="conditions" class="tab-content">
+      <div class="legal-section">
+        <h2>Conditions d'utilisation</h2>
+        <p>Le site propose un outil de simulation destiné à fournir des estimations indicatives du coût d’un salarié en France.</p>
+
+<p>Les résultats produits par le calculateur reposent sur des hypothèses générales et sur des paramètres standards. Ils ne prennent pas en compte l’ensemble des situations particulières, conventions collectives ou spécificités sectorielles.</p>
+
+<p>Les résultats doivent être considérés uniquement comme des estimations approximatives.</p>
+
+<p>L’utilisateur reconnaît que ces informations ne constituent ni un conseil juridique, ni un conseil fiscal, ni un conseil comptable.</p>
+
+<p>L’éditeur ne saurait être tenu responsable des décisions prises sur la base des résultats fournis par l’outil.</p>
+        <h3>Usage autorisé</h3>
+        <ul>
+          <li>Ne pas détourner le service à des fins illicites ou frauduleuses</li>
+          <li>Ne pas tenter d'altérer le fonctionnement, la sécurité ou l'intégrité du site</li>
+          <li>Respecter les droits de propriété intellectuelle attachés au contenu</li>
+        </ul>
+        <h3>Droit applicable</h3>
+        <p>Les présentes conditions sont soumises au droit français. Tout litige relèvera des juridictions compétentes du ressort du siège social de l'éditeur.</p>
+
+<h3>Propriété intellectuelle</h3>
+
+<p>L’ensemble du contenu du site, incluant notamment le code source, les textes, la structure, les éléments graphiques et le design, est protégé par le droit de la propriété intellectuelle.</p>
+
+<p>Toute reproduction, modification ou distribution sans autorisation préalable est interdite.</p>
+
+<p>Certaines parties du code ont été développées avec l’assistance d’outils d’intelligence artificielle.</p>
+
+      </div>
+    </section>
+
+    <section id="contact" class="tab-content">
+      <div class="legal-section">
+        <h2>Contact</h2>
+        <p><strong>Nom :</strong> Leonardo Rubatto</p>
+<p><strong>Email :</strong> <a href="mailto:bonaventis@gmail.com">bonaventis@gmail.com</a></p>
+<p><strong>Téléphone :</strong> +33 6 95 57 38 63</p>
+<p><strong>Ville :</strong> Paris, France</p>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="last-update">
+    © 2026 Coût Salarié — Tous droits réservés<br>
+    Dernière mise à jour : 4 mars 2026
+  </div>
+
+</div>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function updateThemeIcon() {
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var icon = document.getElementById('themeIcon');
+    if (icon) icon.textContent = dark ? '☀️' : '🌙';
+  }
+
+  function toggleTheme() {
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? '' : 'dark');
+    localStorage.setItem('theme', dark ? 'light' : 'dark');
+    updateThemeIcon();
+  }
+
+  // Tab navigation
+  var navLinks = document.querySelectorAll('#subnav-legal a[data-target]');
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = this.getAttribute('data-target');
+      // Hide all tab contents
+      document.querySelectorAll('.tab-content').forEach(function(t) {
+        t.classList.remove('active');
+      });
+      // Remove active from nav
+      document.querySelectorAll('#subnav-legal a').forEach(function(a) {
+        a.classList.remove('active');
+      });
+      // Show target
+      var section = document.getElementById(target);
+      if (section) section.classList.add('active');
+      this.classList.add('active');
+      // Update URL hash without scroll jump
+      history.replaceState(null, '', '#' + target);
+    });
+  });
+
+  // Handle URL hash on page load
+  var initHash = location.hash.replace('#', '');
+  if (initHash) {
+    var initLink = document.querySelector('#subnav-legal a[data-target="' + initHash + '"]');
+    if (initLink) {
+      initLink.click();
+    }
+  }
+
+  updateThemeIcon();
+</script>
+</body>
+</html>

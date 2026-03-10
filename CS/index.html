@@ -1,0 +1,3236 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="">
+<head>
+
+<meta charset="UTF-8">
+<script>(function(){var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SECURITY HEADERS -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+
+<!-- SEO & META -->
+<title>Coût Salarié — Calculateur du coût réel d'un recrutement 2026</title>
+<meta name="description" content="Calculez le coût réel d'un salarié en France : charges patronales, réduction RGDU 2026, AGIRC-ARRCO, mutuelle, tickets restaurant. Taux URSSAF 2026. Outil gratuit et transparent.">
+<meta name="keywords" content="coût salarié, charges patronales, URSSAF, RGDU, recrutement France">
+<meta name="author" content="CoutSalarie.fr">
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Coût Salarié — Calculateur du coût réel d'un recrutement 2026">
+<meta property="og:description" content="Calculez précisément le coût total d'un salarié en France avec toutes les charges patronales.">
+<meta property="og:url" content="https://coutsalarie.fr">
+<meta property="og:image" content="https://coutsalarie.fr/og-image.png">
+<meta property="og:locale" content="fr_FR">
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Coût Salarié — Calculateur de coût de recrutement">
+<meta name="twitter:description" content="Outil transparent pour calculer le coût réel d'un salarié en France">
+
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#1D4ED8">
+
+<!-- STRUCTURED DATA (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "CoutSalarie.fr",
+  "description": "Calculateur du coût réel d'un recrutement en France",
+  "url": "https://coutsalarie.fr",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Accueil","item":"https://coutsalarie.fr/"},
+    {"@type":"ListItem","position":2,"name":"Calculateur de coût salarial","item":"https://coutsalarie.fr/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Comment calculer le coût total d'un salarié en France ?",
+     "acceptedAnswer":{"@type":"Answer","text":"Le coût total = salaire brut + charges patronales nettes (après réduction RGDU) + compléments employeur (mutuelle, tickets restaurant, transport). L'outil Coût Salarié calcule tout automatiquement avec les taux URSSAF 2026."}},
+    {"@type":"Question","name":"Qu'est-ce que la réduction RGDU 2026 ?",
+     "acceptedAnswer":{"@type":"Answer","text":"La réduction RGDU (ex-Fillon) est un allègement de charges patronales applicable aux salaires < 3 SMIC depuis le 01/01/2026 (LFSS 2025 art. 18). Le coefficient maximal est de 0,3781 pour les entreprises < 50 salariés."}}
+  ]
+}
+</script>
+
+<!-- FONTS & PRECONNECT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfyfIamezgVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+/* --- RESET ------------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* --- DESIGN TOKENS ---------------------------------------- */
+:root {
+  --blue:        #1D4ED8;
+  --blue-l:      #EFF6FF;
+  --blue-d:      #1e3a8a;
+  --blue-mid:    #3B82F6;
+  --green:       #059669;
+  --green-l:     #ECFDF5;
+  --orange:      #D97706;
+  --orange-l:    #FFFBEB;
+  --red:         #DC2626;
+  --red-l:       #FEF2F2;
+  --gray-50:     #F9FAFB;
+  --gray-100:    #F3F4F6;
+  --gray-200:    #E5E7EB;
+  --gray-300:    #D1D5DB;
+  --gray-400:    #9CA3AF;
+  --gray-500:    #6B7280;
+  --gray-700:    #374151;
+  --gray-900:    #111827;
+  --white:       #FFFFFF;
+  --body-bg:     #dde6ef;
+  --card-shadow: 0 1px 2px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.06);
+  --card-shadow-hover: 0 4px 6px rgba(0,0,0,.07), 0 12px 24px rgba(0,0,0,.10);
+  --radius:      14px;
+  --radius-sm:   8px;
+  --font-main:   'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono:   'DM Mono', 'Fira Code', monospace;
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- BASE -------------------------------------------------- */
+body {
+  font-family: var(--font-main);
+  background: var(--body-bg);
+  color: var(--gray-900);
+  line-height: 1.55;
+  font-size: 15px;
+  min-height: 100vh;
+}
+
+/* --- SCROLLBAR AMELIOREE ---------------------------------- */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--gray-50); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 4px; transition: background var(--transition-fast); }
+::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
+
+/* --- FOCUS VISIBLE UNIVERSELLE ----------------------------- */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* --- REDUCED MOTION ----------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- CONTRASTE AMELIORE ------------------------------------ */
+@media (prefers-contrast: more) {
+  :root {
+    --blue: #0A1F7F;
+    --green: #006622;
+    --gray-500: #555555;
+    --gray-700: #1a1a1a;
+  }
+}
+
+/* --- HEADER ------------------------------------------------ */
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 1px 0 var(--gray-200), 0 2px 8px rgba(0,0,0,.05);
+}
+.header-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.logo-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-d) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(29,78,216,.35);
+}
+.logo-info { display: flex; flex-direction: column; gap: 1px; }
+.logo-name { font-size: 17px; font-weight: 800; color: var(--gray-900); letter-spacing: -0.4px; line-height: 1; }
+.logo-name span { color: var(--blue); }
+.logo-sub { font-size: 11px; color: var(--gray-500); font-weight: 400; line-height: 1; }
+.header-right { display: flex; align-items: center; gap: 10px; }
+.badge-urssaf {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: var(--blue-l);
+  color: var(--blue);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  border: 1px solid #BFDBFE;
+}
+.badge-reform {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: #F5F3FF;
+  color: #7C3AED;
+  border: 1px solid #DDD6FE;
+  white-space: nowrap;
+}
+
+/* --- LAYOUT ------------------------------------------------ */
+.page-wrap {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 28px 24px 48px;
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* --- STICKY RESULTS --------------------------------------- */
+.col-results {
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-300) transparent;
+}
+
+/* --- CARD -------------------------------------------------- */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.card:last-child { margin-bottom: 0; }
+.card-head {
+  padding: 18px 22px 16px;
+  border-bottom: 1px solid var(--gray-100);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-head-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background: var(--gray-100);
+  flex-shrink: 0;
+}
+.card-head h2 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--gray-900);
+  letter-spacing: -0.2px;
+}
+.card-body { padding: 22px; }
+
+/* --- SECTION LABELS --------------------------------------- */
+.sec-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--gray-500);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gray-100);
+}
+.form-section { margin-bottom: 22px; }
+.form-section:last-child { margin-bottom: 0; }
+
+/* --- FIELD ------------------------------------------------- */
+.field { margin-bottom: 14px; }
+.field:last-child { margin-bottom: 0; }
+.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 7px;
+}
+.field input[type="number"],
+.field select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: var(--font-main);
+  color: var(--gray-900);
+  background: var(--white);
+  transition: border-color .18s, box-shadow .18s;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.field input[type="number"]:focus,
+.field select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(29,78,216,.10);
+}
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+.field-note {
+  font-size: 11.5px;
+  color: var(--gray-500);
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+/* --- TOGGLE SAL TYPE -------------------------------------- */
+.seg-ctrl {
+  display: flex;
+  background: var(--gray-100);
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 16px;
+  border: 1px solid var(--gray-200);
+}
+.seg-btn {
+  flex: 1;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: all .2s;
+  color: var(--gray-500);
+  background: transparent;
+  text-align: center;
+}
+.seg-btn.active {
+  background: var(--white);
+  color: var(--blue);
+  box-shadow: 0 1px 4px rgba(0,0,0,.10);
+}
+
+/* --- RADIO PILLS ------------------------------------------ */
+.radio-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.radio-pill { flex: 1; min-width: 72px; }
+.radio-pill input[type="radio"] { display: none; }
+.radio-pill label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 9px 10px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all .18s;
+  text-align: center;
+  background: var(--white);
+  line-height: 1.2;
+}
+.radio-pill input[type="radio"]:checked + label {
+  border-color: var(--blue);
+  background: var(--blue-l);
+  color: var(--blue);
+}
+.radio-pill label:hover { border-color: var(--gray-400); color: var(--gray-700); }
+
+/* --- RANGE SLIDER ----------------------------------------- */
+.slider-wrap { margin-bottom: 6px; }
+.range-input {
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--gray-200);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.range-input::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 2.5px solid var(--white);
+  box-shadow: 0 1px 6px rgba(29,78,216,.40);
+  cursor: pointer;
+  transition: transform .15s;
+}
+.range-input::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.range-input::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 2.5px solid var(--white);
+  box-shadow: 0 1px 6px rgba(29,78,216,.40);
+  cursor: pointer;
+}
+.slider-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--gray-400);
+  margin-top: 5px;
+}
+
+/* --- PROGRESS BAR ----------------------------------------- */
+.prog-bar {
+  height: 3px;
+  background: var(--gray-100);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+.prog-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--blue-mid) 100%);
+  transition: width .35s cubic-bezier(.4,0,.2,1);
+}
+
+/* --- REFORM BANNER ---------------------------------------- */
+.reform-banner {
+  background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.reform-banner strong { display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 3px; }
+
+/* --- SCOPE NOTE ------------------------------------------- */
+.scope-note {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-left: 3px solid var(--gray-300);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 11.5px;
+  color: var(--gray-500);
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+/* --- OPTIONAL TOGGLES ------------------------------------- */
+.opt-item {
+  border: 1.5px solid var(--gray-200);
+  border-radius: 11px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  transition: border-color .2s;
+}
+.opt-item.on { border-color: var(--blue); }
+.opt-item:last-child { margin-bottom: 0; }
+.opt-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  cursor: pointer;
+  background: var(--white);
+  transition: background .15s;
+  user-select: none;
+}
+.opt-toggle:hover { background: var(--gray-50); }
+.opt-toggle:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: -2px;
+}
+.opt-toggle-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+.opt-toggle-icon { font-size: 17px; }
+.switch {
+  width: 38px;
+  height: 21px;
+  border-radius: 11px;
+  background: var(--gray-300);
+  position: relative;
+  flex-shrink: 0;
+  transition: background .2s;
+}
+.switch::after {
+  content: '';
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  transition: left .2s;
+}
+.opt-item.on .switch { background: var(--blue); }
+.opt-item.on .switch::after { left: 19.5px; }
+.opt-body {
+  padding: 16px;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-100);
+  display: none;
+}
+.opt-item.on .opt-body { display: block; }
+.two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.two-cols .field { margin-bottom: 0; }
+
+/* --- ACTION BUTTONS --------------------------------------- */
+.action-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+.btn {
+  flex: 1;
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-main);
+  cursor: pointer;
+  border: none;
+  transition: all .18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  letter-spacing: -0.1px;
+}
+.btn:active { transform: scale(.97); }
+.btn-ghost {
+  background: var(--white);
+  color: var(--gray-700);
+  border: 1.5px solid var(--gray-200);
+}
+.btn-ghost:hover { background: var(--gray-50); border-color: var(--gray-400); }
+.share-field {
+  display: none;
+  gap: 8px;
+  margin-top: 12px;
+  align-items: center;
+}
+.share-field input {
+  flex: 1;
+  padding: 9px 12px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: var(--gray-500);
+  background: var(--gray-50);
+  outline: none;
+  font-family: var(--font-mono);
+}
+.share-field button {
+  padding: 9px 16px;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  font-weight: 700;
+  font-family: var(--font-main);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s;
+}
+.share-field button:hover { background: var(--blue-d); }
+
+/* --- RESULTS CARD ----------------------------------------- */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--gray-400);
+}
+.empty-icon { font-size: 44px; margin-bottom: 14px; opacity: .6; }
+.empty-state p { font-size: 14px; line-height: 1.6; }
+.empty-state p + p { font-size: 12.5px; margin-top: 6px; }
+
+/* --- METRICS ---------------------------------------------- */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.metric {
+  border-radius: 11px;
+  padding: 14px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.metric.blue   { background: var(--blue-l);   border: 1.5px solid #BFDBFE; }
+.metric.green  { background: var(--green-l);  border: 1.5px solid #A7F3D0; }
+.metric.orange { background: var(--orange-l); border: 1.5px solid #FCD34D; }
+.metric-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.metric.blue   .metric-label { color: var(--blue); }
+.metric.green  .metric-label { color: var(--green); }
+.metric.orange .metric-label { color: var(--orange); }
+.metric-value {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  font-variant-numeric: tabular-nums;
+}
+.metric.blue   .metric-value { color: var(--blue); }
+.metric.green  .metric-value { color: var(--green); }
+.metric.orange .metric-value { color: var(--orange); }
+.metric-sub { font-size: 10.5px; color: var(--gray-500); }
+
+/* --- MULTIPLIER BANNER ------------------------------------ */
+.mult-banner {
+  background: linear-gradient(135deg, var(--blue-d) 0%, var(--blue) 100%);
+  border-radius: 11px;
+  padding: 13px 18px;
+  color: #fff;
+  text-align: center;
+  font-size: 12.5px;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.mult-banner strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-top: 3px;
+}
+
+/* --- ALERTS ----------------------------------------------- */
+.alerts-zone { margin-bottom: 6px; }
+.alert {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  border-radius: 9px;
+  padding: 11px 14px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.alert:last-child { margin-bottom: 0; }
+.alert-icon { flex-shrink: 0; font-size: 14px; }
+.alert.error  { background: var(--red-l);    border: 1px solid #FECACA; color: #991B1B; }
+.alert.info   { background: var(--blue-l);   border: 1px solid #BFDBFE; color: var(--blue-d); }
+.alert.warn   { background: var(--orange-l); border: 1px solid #FCD34D; color: #92400E; }
+
+/* --- BREAKDOWN -------------------------------------------- */
+.breakdown { margin-top: 2px; }
+.bk-group { margin-bottom: 4px; }
+.bk-group-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 13px;
+  background: var(--gray-100);
+  border-radius: 9px;
+  cursor: pointer;
+  user-select: none;
+  transition: background .15s;
+  margin-bottom: 2px;
+  border: 1px solid transparent;
+}
+.bk-group-head:hover { background: var(--gray-200); }
+.bk-group-head:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.bk-group.open .bk-group-head { background: var(--blue-l); border-color: #BFDBFE; }
+.bk-group-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-900);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.bk-group.open .bk-group-title { color: var(--blue-d); }
+.bk-group-amt {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-900);
+  font-variant-numeric: tabular-nums;
+}
+.bk-arrow {
+  font-size: 9px;
+  color: var(--gray-400);
+  transition: transform .2s;
+  margin-left: 4px;
+}
+.bk-group.open .bk-arrow { transform: rotate(180deg); }
+.bk-rows { display: none; padding: 2px 2px 4px; }
+.bk-group.open .bk-rows { display: block; }
+.bk-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 10px;
+  border-radius: 7px;
+  font-size: 12.5px;
+  transition: background .1s;
+}
+.bk-row:hover { background: var(--gray-50); }
+.bk-row-left { display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0; }
+.bk-row-name {
+  color: var(--gray-900);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bk-row-detail { color: var(--gray-400); font-size: 11px; font-family: var(--font-mono); }
+.bk-row-amt {
+  font-weight: 700;
+  color: var(--gray-900);
+  white-space: nowrap;
+  margin-left: 14px;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.bk-row-amt.pos { color: var(--green); }
+.bk-row-amt.neg { color: var(--red); }
+.bk-row-amt.zero { color: var(--gray-400); }
+.subtotal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  margin: 4px 0 2px;
+  border-top: 1.5px solid var(--gray-200);
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.subtotal-row span:first-child { color: var(--gray-500); }
+.subtotal-row span:last-child  { color: var(--gray-900); font-family: var(--font-mono); font-size: 12px; }
+.fillon-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 10px;
+  background: var(--green-l);
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  margin: 4px 0;
+  border: 1px solid #A7F3D0;
+}
+.fillon-row span:first-child { color: var(--green); }
+.fillon-row span:last-child  { color: var(--green); font-family: var(--font-mono); font-size: 12px; }
+
+/* --- TOTALS ----------------------------------------------- */
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 16px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.total-row.blue-t {
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+  border: 1.5px solid #BFDBFE;
+}
+.total-row.orange-t {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border: 1.5px solid #FCD34D;
+  margin-top: 8px;
+}
+.total-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue-d);
+}
+.total-row.orange-t .total-label { color: #92400E; }
+.total-amt {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--blue);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  letter-spacing: -0.3px;
+}
+.total-row.orange-t .total-amt { color: var(--orange); }
+.results-foot {
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--gray-400);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* --- AFFILIATE -------------------------------------------- */
+.affiliate-wrap {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+.affiliate-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-500);
+  margin-bottom: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-200);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.affiliate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.aff-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--card-shadow);
+  transition: all .2s;
+}
+.aff-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+.aff-icon { font-size: 26px; }
+.aff-card h3 { font-size: 14px; font-weight: 700; color: var(--gray-900); }
+.aff-card p { font-size: 13px; color: var(--gray-500); flex: 1; line-height: 1.5; }
+.aff-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-main);
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+  cursor: pointer;
+  transition: all .15s;
+  align-self: flex-start;
+  text-decoration: none;
+}
+.aff-cta:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
+.aff-disclaimer {
+  font-size: 11px;
+  color: var(--gray-400);
+  margin-top: 14px;
+  line-height: 1.5;
+}
+
+/* --- FOOTER AMELIOREE -------------------------------------- */
+.site-footer {
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
+  padding: 0;
+}
+
+.footer-content {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 48px 24px 24px;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--gray-200);
+  padding-bottom: 32px;
+}
+
+.footer-col h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: 12px;
+}
+
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--gray-500);
+  margin-bottom: 10px;
+}
+
+.footer-col p {
+  font-size: 13px;
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  color: var(--gray-500);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color var(--transition-fast);
+}
+
+.footer-col ul li a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-200);
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+/* --- COOKIES BANNER ---------------------------------------- */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+  z-index: 999;
+  transform: translateY(100%);
+  transition: transform var(--transition-smooth);
+  display: none;
+}
+
+.cookie-banner.show {
+  display: block;
+  transform: translateY(0);
+}
+
+.cookie-content {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cookie-text h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.cookie-text p {
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cookie-btn {
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-main);
+  border: 1.5px solid var(--gray-200);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.cookie-btn.reject {
+  background: var(--white);
+  color: var(--gray-700);
+}
+
+.cookie-btn.reject:hover {
+  border-color: var(--gray-400);
+  color: var(--gray-900);
+}
+
+.cookie-btn.settings {
+  background: var(--gray-50);
+  color: var(--gray-700);
+  border-color: var(--gray-300);
+}
+
+.cookie-btn.settings:hover {
+  background: var(--gray-100);
+}
+
+.cookie-btn.accept {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+.cookie-btn.accept:hover {
+  background: var(--blue-d);
+}
+
+/* --- FLOATING BTN ----------------------------------------- */
+.float-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--gray-900);
+  color: var(--white);
+  padding: 13px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-main);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all .2s;
+  z-index: 150;
+}
+.float-btn:hover {
+  background: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(29,78,216,.35);
+}
+
+/* --- TOAST ------------------------------------------------ */
+.toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--gray-900);
+  color: var(--white);
+  padding: 11px 22px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all .3s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+  z-index: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* --- MODAL ------------------------------------------------ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 400;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--white);
+  border-radius: 18px;
+  width: 100%;
+  max-width: 860px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 64px rgba(0,0,0,.25);
+}
+.modal-head {
+  padding: 22px 26px 18px;
+  border-bottom: 1px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.modal-head h2 { font-size: 16px; font-weight: 800; color: var(--gray-900); letter-spacing: -0.3px; }
+.modal-close-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gray-200);
+  background: var(--gray-100);
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s;
+  color: var(--gray-500);
+  font-family: var(--font-main);
+}
+.modal-close-btn:hover { background: var(--gray-200); color: var(--gray-900); }
+.modal-tabs-bar {
+  display: flex;
+  border-bottom: 1px solid var(--gray-200);
+  padding: 0 26px;
+  flex-shrink: 0;
+}
+.modal-tab {
+  padding: 13px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2.5px solid transparent;
+  color: var(--gray-500);
+  transition: all .2s;
+  margin-bottom: -1px;
+  font-family: var(--font-main);
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.modal-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+.modal-body { padding: 22px 26px; overflow-y: auto; flex: 1; }
+.modal-pane { display: none; }
+.modal-pane.active { display: block; }
+
+/* --- SOURCES TABLE ---------------------------------------- */
+.sources-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.sources-table th {
+  background: var(--gray-100);
+  padding: 9px 13px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--gray-500);
+  border-bottom: 1px solid var(--gray-200);
+}
+.sources-table td {
+  padding: 9px 13px;
+  border-bottom: 1px solid var(--gray-100);
+  vertical-align: middle;
+  font-size: 12px;
+}
+.sources-table tr:last-child td { border-bottom: none; }
+.sources-table tr:hover td { background: var(--gray-50); }
+.sources-table a { color: var(--blue); text-decoration: none; }
+.sources-table a:hover { text-decoration: underline; }
+.rate-pill {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: var(--blue-l);
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 11px;
+  border: 1px solid #BFDBFE;
+}
+
+/* --- LINK CARDS ------------------------------------------- */
+.link-cards { display: flex; flex-direction: column; gap: 10px; }
+.link-card {
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  transition: all .15s;
+}
+.link-card:hover { border-color: var(--blue); background: var(--blue-l); }
+.lc-title { font-size: 13.5px; font-weight: 700; color: var(--gray-900); }
+.lc-desc { font-size: 11.5px; color: var(--gray-500); margin-top: 2px; }
+.lc-link {
+  flex-shrink: 0;
+  padding: 7px 14px;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 7px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background .15s;
+  white-space: nowrap;
+}
+.lc-link:hover { background: var(--blue-d); }
+.last-check-box {
+  font-size: 12px;
+  color: var(--gray-500);
+  background: var(--gray-50);
+  border-radius: 9px;
+  padding: 13px 16px;
+  margin-bottom: 18px;
+  border-left: 3px solid var(--blue);
+  line-height: 1.5;
+}
+
+[data-theme="dark"] {
+  --body-bg: #080e18;
+  --white: #0f172a;
+  --gray-50: #2a3442;
+  --gray-100: #313c4a;
+  --gray-200: #3e4a5a;
+  --gray-400: #7a8798;
+  --gray-500: #b8c2cf;
+  --gray-700: #d6dde6;
+  --gray-900: #ffffff;
+}
+[data-theme="dark"] body { background: var(--body-bg); color: var(--gray-900); }
+[data-theme="dark"] .card,
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .modal-box { background: var(--white); border-color: var(--gray-200); }
+[data-theme="dark"] .seg-ctrl { background: var(--gray-100); border-color: var(--gray-200); }
+[data-theme="dark"] .seg-btn.active { background: var(--gray-50); }
+[data-theme="dark"] .field input,[data-theme="dark"] .field select {
+  background: var(--gray-50); border-color: var(--gray-200); color: var(--gray-900);
+}
+[data-theme="dark"] .radio-pill label { background: var(--gray-50); border-color: var(--gray-200); color: var(--gray-500); }
+[data-theme="dark"] .radio-pill input:checked + label { background: #1e3a8a; border-color: var(--blue); color: #fff; }
+[data-theme="dark"] .opt-toggle { border-color: var(--gray-200); }
+[data-theme="dark"] .opt-toggle:hover { background: var(--gray-50); }
+[data-theme="dark"] .bk-row { border-bottom-color: var(--gray-100); }
+[data-theme="dark"] .bk-group { background: var(--gray-50); border-color: var(--gray-200); }
+[data-theme="dark"] .bk-group-head { background: var(--gray-100); }
+[data-theme="dark"] .cookie-banner { background: var(--white); border-top-color: var(--gray-200); }
+[data-theme="dark"] .cookie-btn.settings { background: var(--gray-100); }
+[data-theme="dark"] .modal-overlay { background: rgba(0,0,0,.7); }
+[data-theme="dark"] .sources-table th { background: var(--gray-100); }
+[data-theme="dark"] .sources-table td { border-color: var(--gray-200); }
+[data-theme="dark"] .aff-card { background: var(--white); border-color: var(--gray-200); }
+[data-theme="dark"] .site-footer { background: var(--gray-100); border-top-color: var(--gray-200); }
+[data-theme="dark"] .reform-banner { background: var(--gray-100); border-color: var(--gray-200); color: var(--gray-700); }
+[data-theme="dark"] .scope-note { background: var(--gray-50); border-color: var(--gray-200); color: var(--gray-700); }
+
+
+
+/* --- THEME TOGGLE ----------------------------------------- */
+.theme-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gray-200);
+  background: var(--white);
+  cursor: pointer;
+  font-size: 17px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  transition: all .2s;
+  flex-shrink: 0;
+}
+.theme-btn:hover { border-color: var(--blue); transform: scale(1.08); }
+
+/* --- COOKIE SETTINGS MODAL -------------------------------- */
+.cookie-modal-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 1000;
+  align-items: center; justify-content: center;
+  padding: 16px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.cookie-modal-overlay.open { display: flex; }
+.cookie-modal {
+  background: var(--white);
+  border-radius: 16px;
+  width: 100%; max-width: 480px;
+  box-shadow: 0 24px 64px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+.cm-head {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--gray-200);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cm-head h3 { font-size: 16px; font-weight: 800; color: var(--gray-900); }
+.cm-close {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1.5px solid var(--gray-200);
+  background: var(--gray-100); cursor: pointer; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .15s;
+}
+.cm-close:hover { background: var(--gray-200); }
+.cm-body { padding: 20px 24px; }
+.cm-row {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px; padding: 14px 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+.cm-row:last-child { border-bottom: none; }
+.cm-row-info { flex: 1; }
+.cm-row-title { font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 3px; }
+.cm-row-desc { font-size: 12px; color: var(--gray-500); line-height: 1.5; }
+.cm-toggle-wrap { flex-shrink: 0; padding-top: 2px; }
+.cm-toggle {
+  position: relative; width: 44px; height: 24px;
+  cursor: pointer;
+}
+.cm-toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+.cm-track {
+  position: absolute; inset: 0;
+  background: var(--gray-200); border-radius: 12px;
+  transition: background .2s;
+}
+.cm-toggle input:checked + .cm-track { background: var(--blue); }
+.cm-toggle input:disabled + .cm-track { background: var(--gray-100); cursor: not-allowed; opacity: .7; }
+.cm-track::after {
+  content: '';
+  position: absolute; left: 3px; top: 3px;
+  width: 18px; height: 18px;
+  background: #fff; border-radius: 50%;
+  transition: transform .2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+.cm-toggle input:checked + .cm-track::after { transform: translateX(20px); }
+.cm-foot {
+  padding: 16px 24px;
+  border-top: 1px solid var(--gray-200);
+  display: flex; gap: 10px; justify-content: flex-end;
+}
+.cm-btn {
+  padding: 10px 20px; border-radius: 8px;
+  font-size: 13px; font-weight: 700; font-family: var(--font-main);
+  border: 1.5px solid var(--gray-200); cursor: pointer; transition: all .15s;
+}
+.cm-btn.save { background: var(--blue); color: #fff; border-color: var(--blue); }
+.cm-btn.save:hover { background: var(--blue-d); }
+.cm-btn.reject-all { background: var(--white); color: var(--gray-700); }
+.cm-btn.reject-all:hover { border-color: var(--gray-400); }
+
+/* --- RESPONSIVE ------------------------------------------- */
+@media (max-width: 960px) {
+  .page-wrap {
+    grid-template-columns: 1fr;
+    padding: 16px 16px 32px;
+    gap: 16px;
+  }
+  .col-results {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+  .metrics-grid { grid-template-columns: repeat(3, 1fr); }
+  .badge-reform { display: none; }
+}
+
+@media (max-width: 640px) {
+  .header-inner { padding: 0 16px; height: 58px; }
+  .logo-sub { display: none; }
+  .metrics-grid { grid-template-columns: 1fr; gap: 8px; }
+  .affiliate-grid { grid-template-columns: 1fr; }
+  .two-cols { grid-template-columns: 1fr; }
+  .float-btn { bottom: 16px; right: 16px; padding: 11px 16px; font-size: 12px; }
+  .modal-tabs-bar { padding: 0 16px; }
+  .modal-body { padding: 16px; }
+  .modal-head { padding: 16px 18px; }
+  .modal-tab { padding: 11px 12px; font-size: 12.5px; }
+  .radio-group { flex-wrap: wrap; }
+  .radio-pill { min-width: calc(50% - 4px); }
+  .cookie-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cookie-buttons {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .cookie-btn {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    font-size: 14px;
+  }
+  .header-inner {
+    padding: 0 12px;
+    height: 56px;
+  }
+  .logo-name {
+    font-size: 15px;
+  }
+  .page-wrap {
+    padding: 8px 12px 24px;
+    gap: 12px;
+  }
+  .card-body {
+    padding: 12px;
+  }
+  .float-btn {
+    padding: 10px 14px;
+    font-size: 11px;
+    bottom: 12px;
+    right: 12px;
+  }
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/" aria-label="Accueil CoutSalarie.fr">
+      <div class="logo-mark">C&#x20AC;</div>
+      <div class="logo-info">
+        <div class="logo-name">Cout<span>Salarie</span>.fr</div>
+        <div class="logo-sub">Decouvrez le vrai cout d'un recrutement</div>
+      </div>
+    </a>
+    <div class="header-right">
+      <span class="badge-reform">&#x26A1; Reforme RGDU 2026</span>
+      <span class="badge-urssaf">Taux URSSAF 2026</span>
+      <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Basculer le mode sombre">
+        <span id="themeIcon">🌙</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <div class="col-form">
+
+    <!-- CARTE : LE POSTE -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-icon">&#x1F4BC;</div>
+        <h2>Le poste</h2>
+      </div>
+      <div class="card-body">
+
+        <div class="reform-banner">
+          <strong>&#x26A1; Reforme RGDU 2026 &#x2014; LFSS 2025 art. 18</strong>
+          Taux de cotisations inchanges (taux reduits supprimes au 01/01/2026). La reduction degressive
+          est elargie : seuil porte de 1,6 a 3&#x00A0;x SMIC. Les taux pleins sont appliques d'abord,
+          puis la reduction RGDU est deduite.
+        </div>
+
+        <div class="scope-note">
+          <strong>Perimetre&#x00A0;:</strong> salaire net&#x00A0;=&#x00A0;<em>net avant impot sur le revenu</em>
+          (prelevement a la source non inclus). Hors bonus-malus chomage, avantages en nature, accords de branche.
+          <br><strong>Transparence&#x00A0;:</strong> AT/MP&#x00A0;= taux estimatif sectoriel,
+          DOM-TOM non modelise (taux metropole affiches).
+        </div>
+
+        <div class="form-section">
+          <div class="sec-label">Remuneration</div>
+          <div class="seg-ctrl">
+            <button type="button" class="seg-btn active" id="btn-net" aria-pressed="true"
+              onclick="toggleSalType('net')">Salaire net</button>
+            <button type="button" class="seg-btn" id="btn-brut" aria-pressed="false"
+              onclick="toggleSalType('brut')">Salaire brut</button>
+          </div>
+          <div class="field">
+            <label class="field-label" id="salLabel" for="salInput">Salaire net mensuel (&#x20AC;)</label>
+            <input type="number" id="salInput" min="0" max="99999" step="50"
+              placeholder="Ex : 2 500" oninput="onSalInput(this.value,'input')">
+            <div class="field-note" id="salNote">Salaire net avant impot sur le revenu souhaite</div>
+          </div>
+          <div class="slider-wrap">
+            <input type="range" class="range-input" id="salSlider"
+              min="1400" max="15000" step="50" value="2500"
+              aria-label="Curseur salaire" oninput="onSalInput(this.value,'slider')">
+            <div class="slider-meta" id="sliderMeta">
+              <span>1&#x00A0;400&#x00A0;&#x20AC;</span><span>15&#x00A0;000&#x00A0;&#x20AC;</span>
+            </div>
+          </div>
+          <div class="prog-bar"><div class="prog-fill" id="salProgress" style="width:8%"></div></div>
+        </div>
+
+        <div class="form-section">
+          <div class="sec-label">Statut</div>
+          <div class="radio-group">
+            <div class="radio-pill">
+              <input type="radio" name="statut" id="s-nc" value="noncadre" checked onchange="recalc()">
+              <label for="s-nc">Non-cadre</label>
+            </div>
+            <div class="radio-pill">
+              <input type="radio" name="statut" id="s-c" value="cadre" onchange="recalc()">
+              <label for="s-c">Cadre</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="sec-label">Contrat</div>
+          <div class="radio-group">
+            <div class="radio-pill">
+              <input type="radio" name="contrat" id="c-cdi" value="cdi" checked onchange="recalc()">
+              <label for="c-cdi">CDI</label>
+            </div>
+            <div class="radio-pill">
+              <input type="radio" name="contrat" id="c-cdd" value="cdd" onchange="recalc()">
+              <label for="c-cdd">CDD</label>
+            </div>
+          </div>
+          <div class="field-note" style="margin-top:8px">
+            Informatif &#x2014; cotisations obligatoires identiques. Prime de precarite CDD signalee.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CARTE : ENTREPRISE -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-icon">&#x1F3E2;</div>
+        <h2>Votre entreprise</h2>
+      </div>
+      <div class="card-body">
+
+        <div class="form-section">
+          <div class="sec-label">Effectif</div>
+          <div class="field">
+            <select id="effectif" onchange="recalc()">
+              <option value="10">Moins de 11 salaries</option>
+              <option value="30" selected>11 a 49 salaries</option>
+              <option value="100">50 a 249 salaries</option>
+              <option value="250">250 salaries et plus</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="sec-label">Secteur &#x2014; taux AT/MP</div>
+          <div class="field">
+            <select id="secteur" onchange="recalc()">
+              <option value="0.010">Tertiaire / Bureau (approx. 1,0 %)</option>
+              <option value="0.015" selected>Commerce / Distribution (approx. 1,5 %)</option>
+              <option value="0.018">Sante / Social (approx. 1,8 %)</option>
+              <option value="0.025">Industrie manufacturiere (approx. 2,5 %)</option>
+              <option value="0.035">BTP - Batiment (approx. 3,5 %)</option>
+              <option value="0.015">Autre / Inconnu (moyenne approx. 1,5 %)</option>
+            </select>
+            <div class="field-note">
+              &#x26A0;&#xFE0F; Votre taux exact est notifie par l'URSSAF/CARSAT. Valeur estimative.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="sec-label">Localisation</div>
+          <div class="radio-group">
+            <div class="radio-pill">
+              <input type="radio" name="region" id="r-metro" value="metro" checked onchange="recalc()">
+              <label for="r-metro">France metro.</label>
+            </div>
+            <div class="radio-pill">
+              <input type="radio" name="region" id="r-alsace" value="alsace" onchange="recalc()">
+              <label for="r-alsace">Alsace-Moselle</label>
+            </div>
+            <div class="radio-pill">
+              <input type="radio" name="region" id="r-dom" value="dom" onchange="recalc()">
+              <label for="r-dom">DOM-TOM</label>
+            </div>
+          </div>
+          <div class="field-note" id="regionNote" style="margin-top:8px"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CARTE : COMPLEMENTS -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-icon">&#x2795;</div>
+        <h2>Elements complementaires</h2>
+      </div>
+      <div class="card-body">
+
+        <!-- Mutuelle -->
+        <div class="opt-item" id="opt-mutuelle">
+          <div class="opt-toggle" role="button" tabindex="0" aria-expanded="false"
+            onclick="toggleOpt('mutuelle')"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleOpt('mutuelle')}">
+            <div class="opt-toggle-left">
+              <span class="opt-toggle-icon" aria-hidden="true">&#x1F3E5;</span>
+              <span>Mutuelle collective obligatoire</span>
+            </div>
+            <div class="switch" aria-hidden="true"></div>
+          </div>
+          <div class="opt-body" id="body-mutuelle">
+            <div class="field">
+              <label class="field-label" for="mutuelleMontant">Part patronale mensuelle (&#x20AC;)</label>
+              <input type="number" id="mutuelleMontant" value="50" min="0" step="1" oninput="recalc()">
+              <div class="field-note">
+                Min. legal : 50&#x00A0;% de la cotisation. Exoneration jusqu'a 6&#x00A0;% du PASS
+                (plafond&#x00A0;&#x2248;&#x00A0;240&#x00A0;&#x20AC;/mois). Au-dela : cotisations sur l'exces.
+              </div>
+              <div class="field-note" id="mutuelleWarn"
+                style="display:none;color:#92400E;background:#FFFBEB;border:1px solid #FCD34D;border-radius:7px;padding:8px 10px;margin-top:6px;font-weight:600">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tickets restaurant -->
+        <div class="opt-item" id="opt-tickets">
+          <div class="opt-toggle" role="button" tabindex="0" aria-expanded="false"
+            onclick="toggleOpt('tickets')"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleOpt('tickets')}">
+            <div class="opt-toggle-left">
+              <span class="opt-toggle-icon" aria-hidden="true">&#x1F37D;&#xFE0F;</span>
+              <span>Tickets restaurant</span>
+            </div>
+            <div class="switch" aria-hidden="true"></div>
+          </div>
+          <div class="opt-body" id="body-tickets">
+            <div class="two-cols">
+              <div class="field">
+                <label class="field-label" for="trValeur">Valeur faciale (&#x20AC;)</label>
+                <input type="number" id="trValeur" value="11" min="0" step="0.5" oninput="recalc()">
+              </div>
+              <div class="field">
+                <label class="field-label" for="trJours">Jours / mois</label>
+                <input type="number" id="trJours" value="20" min="0" max="23" oninput="recalc()">
+              </div>
+            </div>
+            <div class="field-note" id="trNote" style="margin-top:8px"></div>
+          </div>
+        </div>
+
+        <!-- Transport -->
+        <div class="opt-item" id="opt-transport">
+          <div class="opt-toggle" role="button" tabindex="0" aria-expanded="false"
+            onclick="toggleOpt('transport')"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleOpt('transport')}">
+            <div class="opt-toggle-left">
+              <span class="opt-toggle-icon" aria-hidden="true">&#x1F687;</span>
+              <span>Remboursement transport</span>
+            </div>
+            <div class="switch" aria-hidden="true"></div>
+          </div>
+          <div class="opt-body" id="body-transport">
+            <div class="field">
+              <label class="field-label" for="transportMontant">Montant mensuel pris en charge (&#x20AC;)</label>
+              <input type="number" id="transportMontant" value="44" min="0" oninput="recalc()">
+              <div class="field-note">
+                Obligation legale : 50&#x00A0;% de l'abonnement TC.
+                Navigo IDF&#x00A0;: 88&#x00A0;&#x20AC;/mois &#x2192; min.&#x00A0;44&#x00A0;&#x20AC;.
+                Exonere de charges dans les limites reglementaires.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Versement mobilite -->
+        <div class="opt-item" id="opt-vm">
+          <div class="opt-toggle" role="button" tabindex="0" aria-expanded="false"
+            onclick="toggleOpt('vm')"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleOpt('vm')}">
+            <div class="opt-toggle-left">
+              <span class="opt-toggle-icon" aria-hidden="true">&#x1F3D9;&#xFE0F;</span>
+              <span>Versement mobilite</span>
+            </div>
+            <div class="switch" aria-hidden="true"></div>
+          </div>
+          <div class="opt-body" id="body-vm">
+            <div class="field">
+              <label class="field-label" for="vmTaux">Taux (%)</label>
+              <input type="number" id="vmTaux" value="1.00" min="0" max="3.20" step="0.05" oninput="recalc()">
+              <div class="field-note">
+                0&#x00A0;% si &#x3C;&#x00A0;10&#x00A0;000&#x00A0;hab. &#x2022;
+                Paris&#x00A0;/ petite couronne&#x00A0;: 3,20&#x00A0;% &#x2022;
+                Grande couronne IDF&#x00A0;: 1,60&#x2013;2,50&#x00A0;%.
+              </div>
+            </div>
+            <div id="vm-warn" class="alert info" style="display:none;margin-top:10px">
+              <span class="alert-icon">&#x2139;&#xFE0F;</span>
+              <span>Entreprises &#x2265;&#x00A0;50 salaries dans les zones concernees : versement mobilite
+              <strong>obligatoire</strong>. Verifiez sur urssaf.fr.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medecine du travail -->
+        <div class="opt-item" id="opt-medecine">
+          <div class="opt-toggle" role="button" tabindex="0" aria-expanded="false"
+            onclick="toggleOpt('medecine')"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleOpt('medecine')}">
+            <div class="opt-toggle-left">
+              <span class="opt-toggle-icon" aria-hidden="true">&#x2695;&#xFE0F;</span>
+              <span>Medecine du travail (SPSTI)</span>
+            </div>
+            <div class="switch" aria-hidden="true"></div>
+          </div>
+          <div class="opt-body" id="body-medecine">
+            <div class="field">
+              <label class="field-label" for="medecineMontant">Cout annuel par salarie (&#x20AC;)</label>
+              <input type="number" id="medecineMontant" value="115" min="0" oninput="recalc()">
+              <div class="field-note">
+                Fourchette nationale&#x00A0;: 80&#x2013;200&#x00A0;&#x20AC;/an.
+                Obligatoire (CT art.&#x00A0;L.4622-1).
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="action-row">
+      <button type="button" class="btn btn-ghost" onclick="exportPDF(this)">
+        &#x1F4C4; Exporter PDF
+      </button>
+      <button type="button" class="btn btn-ghost" onclick="shareURL()">
+        &#x1F517; Partager
+      </button>
+    </div>
+    <div class="share-field" id="shareField">
+      <input type="text" id="shareUrl" readonly placeholder="Lien de partage...">
+      <button type="button" onclick="copyURL()">Copier</button>
+    </div>
+
+  </div><!-- /col-form -->
+
+  <div class="col-results">
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-icon">&#x1F4CA;</div>
+        <h2>Résultats du calcul</h2>
+      </div>
+      <div class="card-body">
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">&#x1F4A1;</div>
+          <p>Entrez un salaire pour demarrer le calcul</p>
+          <p>Les resultats s'affichent en temps reel</p>
+        </div>
+
+        <div id="resultsContent" style="display:none">
+          <div class="alerts-zone" id="alertsZone"></div>
+
+          <div class="metrics-grid">
+            <div class="metric blue">
+              <div class="metric-label">Salaire net</div>
+              <div class="metric-value" id="metricNet">&#x2014;</div>
+              <div class="metric-sub">mensuel avant IR</div>
+            </div>
+            <div class="metric green">
+              <div class="metric-label">Cout total</div>
+              <div class="metric-value" id="metricCout">&#x2014;</div>
+              <div class="metric-sub">mensuel</div>
+            </div>
+            <div class="metric orange">
+              <div class="metric-label">Cout annuel</div>
+              <div class="metric-value" id="metricAnnuel">&#x2014;</div>
+              <div class="metric-sub">charges incluses</div>
+            </div>
+          </div>
+
+          <div class="mult-banner">
+            Pour 1&#x00A0;&#x20AC; de salaire net verse, vous depensez reellement
+            <strong id="multiplierValue">&#x2014;</strong>
+          </div>
+
+          <div class="breakdown" id="breakdownZone"></div>
+
+          <p class="results-foot">
+            Calcul temps reel &#x2022; Taux URSSAF 2026 &#x2022; AT/MP estimatif &#x2022;
+            Net = net avant prélèvement à la source
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- /col-results -->
+
+</div><!-- /page-wrap -->
+
+<div class="affiliate-wrap">
+  <div class="affiliate-title">Pour aller plus loin</div>
+  <div class="affiliate-grid">
+    <div class="aff-card">
+      <div class="aff-icon">&#x1F916;</div>
+      <h3>Automatisez votre paie</h3>
+      <p>Logiciels de paie conformes DSN, fiches de paie automatisees.</p>
+      <a href="https://www.payfit.com" target="_blank" rel="noopener noreferrer" class="aff-cta">
+        Decouvrir PayFit &#x2192;
+      </a>
+    </div>
+    <div class="aff-card">
+      <div class="aff-icon">&#x1F465;</div>
+      <h3>Accompagnement RH</h3>
+      <p>Obtenez un accompagnement RH personnalise pour votre budget recrutement.</p>
+      <a href="https://www.alan.com" target="_blank" rel="noopener noreferrer" class="aff-cta">
+        Comparer les solutions &#x2192;
+      </a>
+    </div>
+    <div class="aff-card">
+      <div class="aff-icon">&#x1F4CA;</div>
+      <h3>Optimisez vos charges</h3>
+      <p>Un expert-comptable identifie les aides a l'embauche et exonerations sectorielles.</p>
+      <a href="https://www.dougs.fr" target="_blank" rel="noopener noreferrer" class="aff-cta">
+        Trouver un comptable &#x2192;
+      </a>
+    </div>
+  </div>
+  <p class="aff-disclaimer">
+    Recommandations independantes. Une commission peut etre percue en cas de souscription
+    &#x2014; sans impact sur vos calculs.
+  </p>
+</div>
+
+<!-- FOOTER COMPLETE -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-main">
+      <div class="footer-col">
+        <h3>Coût Salarié</h3>
+        <p>Outil transparent de calcul du coût réel d'un recrutement en France. Gratuit et sans enregistrement.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Ressources Officielles</h4>
+        <ul>
+          <li><a href="https://www.urssaf.fr" target="_blank" rel="noopener">URSSAF</a></li>
+          <li><a href="https://www.service-public.fr" target="_blank" rel="noopener">Service-Public.fr</a></li>
+          <li><a href="https://www.agirc-arrco.fr" target="_blank" rel="noopener">AGIRC-ARRCO</a></li>
+          <li><a href="https://www.legifrance.gouv.fr" target="_blank" rel="noopener">Légifrance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Politique & Légal</h4>
+        <ul>
+          <li><a href="/confidentialite.html#confidentialite">Confidentialité &amp; RGPD</a></li>
+          <li><a href="/confidentialite.html#mentions">Mentions légales</a></li>
+          <li><a href="/confidentialite.html#conditions">Conditions d'utilisation</a></li>
+          <li><a href="mailto:bonaventis@gmail.com">bonaventis@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <p><small>Outil informatif — ne constitue pas un conseil juridique ou fiscal.<br>
+        Taux à jour au 01/01/2026 — Mise à jour : 4 mars 2026<br>
+        Erreur détectée ? <a href="mailto:bonaventis@gmail.com">bonaventis@gmail.com</a><br><br>
+        © 2026 Coût Salarié — Tous droits réservés</small></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Coût Salarié | Outil gratuit pour estimer le coût d'un recrutement</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- COOKIE SETTINGS MODAL -->
+<div class="cookie-modal-overlay" id="cookieSettingsModal" role="dialog" aria-modal="true"
+  aria-labelledby="cmTitle" onclick="closeCookieModalOverlay(event)">
+  <div class="cookie-modal">
+    <div class="cm-head">
+      <h3 id="cmTitle">⚙️ Paramètres des cookies</h3>
+      <button class="cm-close" onclick="closeCookieSettingsModal()" aria-label="Fermer">✕</button>
+    </div>
+    <div class="cm-body">
+      <div class="cm-row">
+        <div class="cm-row-info">
+          <div class="cm-row-title">🔒 Cookies essentiels</div>
+          <div class="cm-row-desc">Nécessaires au fonctionnement du site (sauvegarde des calculs, préférences). Toujours actifs.</div>
+        </div>
+        <div class="cm-toggle-wrap">
+          <label class="cm-toggle" aria-label="Cookies essentiels (toujours actifs)">
+            <input type="checkbox" id="cm-essential" checked disabled>
+            <span class="cm-track"></span>
+          </label>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="cm-foot">
+      <button class="cm-btn reject-all" onclick="rejectAllFromModal()">Tout refuser</button>
+      <button class="cm-btn save" onclick="saveFromModal()">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIES BANNER -->
+<div id="cookieBanner" class="cookie-banner" role="region" aria-label="Gestion des cookies">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <h3>Gestion des cookies</h3>
+      <p>Nous utilisons des cookies pour améliorer votre expérience. Seuls les essentiels sont activés par défaut.</p>
+    </div>
+    <div class="cookie-buttons">
+      <button id="cookieReject" class="cookie-btn reject">Rejeter</button>
+      <button id="cookieSettings" class="cookie-btn settings">Paramètres</button>
+      <button id="cookieAccept" class="cookie-btn accept">Accepter tout</button>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING BUTTON -->
+<button type="button" class="float-btn" onclick="openModal()" aria-label="Afficher les sources et taux de cotisations">
+  &#x1F4CB; Sources &amp; taux
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true"
+  aria-labelledby="modalTitle" onclick="closeModalOverlay(event)">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 id="modalTitle">Transparence des donnees</h2>
+      <button type="button" class="modal-close-btn" onclick="closeModal()"
+        aria-label="Fermer la fenetre">&#x2715;</button>
+    </div>
+    <div class="modal-tabs-bar">
+      <button type="button" class="modal-tab active"
+        onclick="switchTab('taux',this)">Taux utilises</button>
+      <button type="button" class="modal-tab"
+        onclick="switchTab('sources',this)">Sources officielles</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-pane active" id="pane-taux">
+        <table class="sources-table">
+          <thead>
+            <tr>
+              <th>Cotisation</th><th>Taux</th><th>Assiette</th>
+              <th>Reference legale</th><th>Depuis</th>
+            </tr>
+          </thead>
+          <tbody id="sourcesBody"></tbody>
+        </table>
+      </div>
+      <div class="modal-pane" id="pane-sources">
+        <div class="last-check-box">
+          &#x1F550; Derniere verification manuelle&#x00A0;: <strong>4 mars 2026</strong><br>
+          Erreur ou taux modifie&#x00A0;?
+          <a href="mailto:bonaventis@gmail.com">bonaventis@gmail.com</a>
+        </div>
+        <div class="link-cards" id="sourceLinks"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+'use strict';
+
+function updateThemeIcon() {
+  var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  var icon = document.getElementById('themeIcon');
+  if (icon) icon.textContent = dark ? '☀️' : '🌙';
+}
+
+function toggleTheme() {
+  var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', dark ? '' : 'dark');
+  localStorage.setItem('theme', dark ? 'light' : 'dark');
+  updateThemeIcon();
+}
+
+
+/* =============================================================
+   CONSTANTES LEGALES 2026
+   Sources : URSSAF, Decret n 2025-1446, Arretes 22/12/2025,
+             LFSS 2025 art.18, Convention Unedic, AGIRC-ARRCO
+============================================================= */
+var CFG = Object.freeze({
+  PASS_ANNUEL:  48060,
+  PMSS:          4005,
+  SMIC_HORAIRE:    12.02,
+  SMIC_MENSUEL:  1823.03,
+  SMIC_ANNUEL:  21876.36,
+  MALADIE_PAT:           0.1300,
+  MALADIE_PAT_AM:        0.0150,
+  VIEILLESSE_PLAF_PAT:   0.0855,
+  VIEILLESSE_DEPLAF_PAT: 0.0211,
+  CSA_PAT:               0.0030,
+  AF_PAT:                0.0525,
+  FNAL_PLAF:             0.0010,
+  FNAL_DEPL:             0.0050,
+  CHOMAGE_PAT:           0.0400,
+  AGS:                   0.0025,
+  DIALOGUE_SOCIAL:       0.00016,
+  ARRCO_T1_PAT:          0.0472,
+  ARRCO_T2_PAT:          0.1295,
+  CEG_T1_PAT:            0.0129,
+  CEG_T2_PAT:            0.0162,
+  CET_PAT:               0.0021,
+  PREVOYANCE_CADRE:      0.0150,
+  APEC_PAT:              0.00036,
+  FORMATION_11:          0.0055,
+  FORMATION_50:          0.0100,
+  APPRENTISSAGE:         0.0068,
+  APPRENTISSAGE_AM:      0.0044,
+  PEEC:                  0.0045,
+  VIEILLESSE_PLAF_SAL:   0.0690,
+  VIEILLESSE_DEPLAF_SAL: 0.0040,
+  CHOMAGE_SAL:           0.0000,
+  MALADIE_SAL_AM:        0.0130,
+  CSG_BASE:              0.9825,
+  CSG_DEDUCTIBLE:        0.0680,
+  CSG_NON_DEDUCTIBLE:    0.0240,
+  CRDS:                  0.0050,
+  ARRCO_T1_SAL:          0.0315,
+  ARRCO_T2_SAL:          0.0864,
+  CEG_T1_SAL:            0.0086,
+  CEG_T2_SAL:            0.0108,
+  CET_SAL:               0.0014,
+  APEC_SAL:              0.00024,
+  RGDU_T_MIN:         0.0200,
+  RGDU_T_DELTA_50:    0.3781,
+  RGDU_T_DELTA_GE50:  0.3821,
+  RGDU_EXPOSANT:      1.75,
+  RGDU_SEUIL_SMIC:    3,
+  TR_PART_PAT_MAX:    0.60,
+  TR_PLAFOND_EXONERE: 11.38,
+  TR_PAT_MAX_EXONERE:  6.83
+});
+
+var SOURCES = [
+  {n:"Assurance maladie (patronale)",t:"13,00 %",a:"Totalite",s:"CSS art. L.241-2",u:"https://www.legifrance.gouv.fr",d:"01/01/2026"},
+  {n:"Maladie supp. Alsace-Moselle (pat.)",t:"+1,50 %",a:"Totalite",s:"Regime local",u:"https://www.ameli.fr",d:"01/01/2024"},
+  {n:"Maladie sal. Alsace-Moselle",t:"+1,30 %",a:"Totalite",s:"Regime local",u:"https://www.ameli.fr",d:"01/01/2024"},
+  {n:"Vieillesse plafonnee (pat.)",t:"8,55 %",a:"<= PMSS (4 005 EUR)",s:"CSS art. L.241-3",u:"https://www.legifrance.gouv.fr",d:"01/07/2012"},
+  {n:"Vieillesse deplafonnee (pat.)",t:"2,11 %",a:"Totalite",s:"Decret n.2025-1446",u:"https://www.legifrance.gouv.fr",d:"01/01/2026"},
+  {n:"Vieillesse plafonnee (sal.)",t:"6,90 %",a:"<= PMSS",s:"CSS art. L.241-3",u:"https://www.legifrance.gouv.fr",d:"01/01/2013"},
+  {n:"Vieillesse deplafonnee (sal.)",t:"0,40 %",a:"Totalite",s:"CSS art. L.241-3",u:"https://www.legifrance.gouv.fr",d:"01/01/2013"},
+  {n:"CSA",t:"0,30 %",a:"Totalite",s:"Loi n.2004-626",u:"https://www.legifrance.gouv.fr",d:"01/07/2004"},
+  {n:"Allocations familiales",t:"5,25 %",a:"Totalite (taux unique 2026)",s:"CSS art. L.241-6",u:"https://www.legifrance.gouv.fr",d:"01/01/2026"},
+  {n:"FNAL (< 50 sal.)",t:"0,10 %",a:"<= PMSS",s:"CSS art. L.834-1",u:"https://www.legifrance.gouv.fr",d:"01/01/1992"},
+  {n:"FNAL (>= 50 sal.)",t:"0,50 %",a:"Totalite",s:"CSS art. L.834-1",u:"https://www.legifrance.gouv.fr",d:"01/01/1992"},
+  {n:"Assurance chomage (pat.)",t:"4,00 %",a:"<= 4 PMSS",s:"Convention Unedic 2024",u:"https://www.unedic.org",d:"01/01/2024"},
+  {n:"AGS",t:"0,25 %",a:"<= 4 PMSS",s:"CSS art. L.143-11-4",u:"https://www.ags-garantie-salariale.fr",d:"01/01/2024"},
+  {n:"Dialogue social",t:"0,016 %",a:"Totalite",s:"Loi n.2014-288",u:"https://www.legifrance.gouv.fr",d:"01/01/2015"},
+  {n:"AGIRC-ARRCO T1 (pat.)",t:"4,72 %",a:"<= 1 PMSS",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2023"},
+  {n:"AGIRC-ARRCO T2 (pat.)",t:"12,95 %",a:"1 a 8 PMSS",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2023"},
+  {n:"AGIRC-ARRCO T1 (sal.)",t:"3,15 %",a:"<= 1 PMSS",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2023"},
+  {n:"AGIRC-ARRCO T2 (sal.)",t:"8,64 %",a:"1 a 8 PMSS",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2023"},
+  {n:"CEG T1 (pat.)",t:"1,29 %",a:"<= 1 PMSS",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2019"},
+  {n:"CEG T2 (pat.)",t:"1,62 %",a:"1 a 8 PMSS",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2019"},
+  {n:"CET (pat.)",t:"0,21 %",a:"> PMSS (base T1+T2)",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2019"},
+  {n:"CET (sal.)",t:"0,14 %",a:"> PMSS (base T1+T2)",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2019"},
+  {n:"CEG T1 (sal.)",t:"0,86 %",a:"<= 1 PMSS",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2019"},
+  {n:"CEG T2 (sal.)",t:"1,08 %",a:"1 a 8 PMSS",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2019"},
+  {n:"Prevoyance cadre (pat.)",t:"1,50 %",a:"<= PMSS (minimum ANI)",s:"ANI 1983 / Code trav.",u:"https://www.legifrance.gouv.fr",d:"01/01/1983"},
+  {n:"APEC (pat.)",t:"0,036 %",a:"<= 4 PMSS (cadres)",s:"Convention APEC",u:"https://www.apec.fr",d:"01/01/2019"},
+  {n:"APEC (sal.)",t:"0,024 %",a:"<= 4 PMSS (cadres)",s:"Convention APEC",u:"https://www.apec.fr",d:"01/01/2019"},
+  {n:"Formation pro (< 50 sal.)",t:"0,55 %",a:"Totalite",s:"Code du travail",u:"https://www.legifrance.gouv.fr",d:"01/01/2019"},
+  {n:"Formation pro (>= 50 sal.)",t:"1,00 %",a:"Totalite",s:"Code du travail",u:"https://www.legifrance.gouv.fr",d:"01/01/2019"},
+  {n:"Taxe apprentissage",t:"0,68 %",a:"Totalite",s:"CGI art. 1599 ter A",u:"https://www.legifrance.gouv.fr",d:"01/01/2020"},
+  {n:"PEEC logement (>= 50 sal.)",t:"0,45 %",a:"Totalite",s:"CCH art. L.313-1",u:"https://www.legifrance.gouv.fr",d:"01/01/1992"},
+  {n:"CSG deductible",t:"6,80 %",a:"98,25 % du brut",s:"CSS art. L.136-1",u:"https://www.legifrance.gouv.fr",d:"01/01/2018"},
+  {n:"CSG non deductible",t:"2,40 %",a:"98,25 % du brut",s:"CSS art. L.136-1",u:"https://www.legifrance.gouv.fr",d:"01/01/2018"},
+  {n:"CRDS",t:"0,50 %",a:"98,25 % du brut",s:"Ordonnance 96-50",u:"https://www.legifrance.gouv.fr",d:"01/02/1996"}
+];
+
+var SOURCE_LINKS = [
+  {t:"URSSAF - Taux de cotisations 2026",d:"Table officielle des cotisations sociales",u:"https://www.urssaf.fr"},
+  {t:"Service-Public.fr - Cotisations employeur",d:"Fiche synthese charges patronales",u:"https://www.service-public.fr"},
+  {t:"AGIRC-ARRCO",d:"Retraite complementaire - baremes en vigueur",u:"https://www.agirc-arrco.fr"},
+  {t:"Legifrance - LFSS 2025 art. 18",d:"Reforme RGDU, decrets d'application",u:"https://www.legifrance.gouv.fr"},
+  {t:"Unedic - Convention assurance chomage",d:"Taux et modalites de cotisation",u:"https://www.unedic.org"}
+];
+
+var state = {
+  salType:  'net',
+  salValue: null,
+  opts: {
+    mutuelle:  false,
+    tickets:   false,
+    transport: false,
+    vm:        false,
+    medecine:  false
+  }
+};
+
+var COOKIE_KEY = 'csx_cookies_v1';
+var STORAGE_KEY = 'csx_v4';
+var cookies = {
+  essential: true
+};
+
+/* =============================================================
+   UTILITAIRES
+============================================================= */
+function clamp(v, lo, hi) { return Math.min(Math.max(v, lo), hi); }
+function round2(v)         { return Math.round(v * 100) / 100; }
+function fmt2(v) {
+  return new Intl.NumberFormat('fr-FR', {
+    style: 'currency', currency: 'EUR',
+    minimumFractionDigits: 2, maximumFractionDigits: 2
+  }).format(v);
+}
+function fmtK(v) {
+  return new Intl.NumberFormat('fr-FR', {
+    style: 'currency', currency: 'EUR',
+    minimumFractionDigits: 0, maximumFractionDigits: 0
+  }).format(Math.round(v));
+}
+
+/* =============================================================
+   VALIDATION ROBUSTE DES INPUTS
+============================================================= */
+function validateNumber(val, min, max) {
+  var num = parseFloat(val);
+  if (isNaN(num) || !isFinite(num)) return null;
+  return Math.max(min, Math.min(num, max));
+}
+
+/* =============================================================
+   GESTION COOKIES
+============================================================= */
+function loadCookiePreferences() {
+  try {
+    var saved = localStorage.getItem(COOKIE_KEY);
+    if (saved) {
+      cookies = Object.assign(cookies, JSON.parse(saved));
+    }
+  } catch (e) {}
+  
+  var banner = document.getElementById('cookieBanner');
+  if (!savedCookie()) {
+    setTimeout(function() {
+      if (banner) banner.classList.add('show');
+    }, 1500);
+  }
+}
+
+function savedCookie() {
+  try {
+    return localStorage.getItem(COOKIE_KEY) !== null;
+  } catch (e) {
+    return false;
+  }
+}
+
+function acceptAllCookies() {
+  cookies = { essential: true };
+  saveCookiePreferences();
+  closeCookieBanner();
+}
+
+function rejectCookies() {
+  cookies = { essential: true };
+  saveCookiePreferences();
+  closeCookieBanner();
+}
+
+function saveCookiePreferences() {
+  try {
+    localStorage.setItem(COOKIE_KEY, JSON.stringify(cookies));
+  } catch (e) {}
+}
+
+function closeCookieBanner() {
+  var banner = document.getElementById('cookieBanner');
+  if (banner) banner.classList.remove('show');
+}
+
+
+function getParams() {
+  var cadre   = document.querySelector('input[name="statut"]:checked').value === 'cadre';
+  var contrat = document.querySelector('input[name="contrat"]:checked').value;
+  var effectif= parseInt(document.getElementById('effectif').value, 10);
+  var atmp    = parseFloat(document.getElementById('secteur').value);
+  var region  = document.querySelector('input[name="region"]:checked').value;
+  var alsace  = region === 'alsace';
+  var lt50    = effectif < 50;
+
+  var vmTaux = 0;
+  if (state.opts.vm) {
+    vmTaux = (parseFloat(document.getElementById('vmTaux').value) || 0) / 100;
+  }
+
+  var mutuellePat  = state.opts.mutuelle
+    ? (parseFloat(document.getElementById('mutuelleMontant').value) || 0) : 0;
+  var trValeur     = state.opts.tickets
+    ? (parseFloat(document.getElementById('trValeur').value) || 0) : 0;
+  var trJours      = state.opts.tickets
+    ? (parseInt(document.getElementById('trJours').value, 10) || 0) : 0;
+  var transportPat = state.opts.transport
+    ? (parseFloat(document.getElementById('transportMontant').value) || 0) : 0;
+  var medecinePat  = state.opts.medecine
+    ? (parseFloat(document.getElementById('medecineMontant').value) || 0) / 12 : 0;
+
+  return {
+    cadre: cadre, contrat: contrat,
+    effectif: effectif, lt50: lt50,
+    atmp: atmp, region: region, alsace: alsace,
+    vmTaux: vmTaux,
+    mutuellePat: mutuellePat,
+    trValeur: trValeur, trJours: trJours,
+    transportPat: transportPat, medecinePat: medecinePat
+  };
+}
+
+function calcSal(brut, p) {
+  var pmss    = CFG.PMSS;
+  var T1      = Math.min(brut, pmss);
+  var T2      = Math.max(0, Math.min(brut, pmss * 8) - pmss);
+  var csgBase = brut * CFG.CSG_BASE;
+
+  var items = {
+    vieillesse_plaf:  T1 * CFG.VIEILLESSE_PLAF_SAL,
+    vieillesse_depl:  brut * CFG.VIEILLESSE_DEPLAF_SAL,
+    csg_ded:          csgBase * CFG.CSG_DEDUCTIBLE,
+    csg_nded:         csgBase * CFG.CSG_NON_DEDUCTIBLE,
+    crds:             csgBase * CFG.CRDS,
+    arrco_t1:         T1 * CFG.ARRCO_T1_SAL,
+    arrco_t2:         T2 * CFG.ARRCO_T2_SAL,
+    ceg_t1:           T1 * CFG.CEG_T1_SAL,
+    ceg_t2:           T2 * CFG.CEG_T2_SAL,
+    cet:              brut > pmss ? (T1 + T2) * CFG.CET_SAL : 0,
+    maladie_am:       p.alsace ? brut * CFG.MALADIE_SAL_AM : 0,
+    apec:             p.cadre  ? Math.min(brut, pmss * 4) * CFG.APEC_SAL : 0
+  };
+
+  var total = 0;
+  for (var k in items) { total += items[k]; }
+  return { items: items, total: round2(total) };
+}
+
+function calcPat(brut, p) {
+  var pmss = CFG.PMSS;
+  var T1   = Math.min(brut, pmss);
+  var T2   = Math.max(0, Math.min(brut, pmss * 8) - pmss);
+  var T4   = Math.min(brut, pmss * 4);
+
+  var items = {
+    maladie:          brut * CFG.MALADIE_PAT,
+    maladie_am:       p.alsace ? brut * CFG.MALADIE_PAT_AM : 0,
+    af:               brut * CFG.AF_PAT,
+    vieillesse_plaf:  T1   * CFG.VIEILLESSE_PLAF_PAT,
+    vieillesse_depl:  brut * CFG.VIEILLESSE_DEPLAF_PAT,
+    csa:              brut * CFG.CSA_PAT,
+    fnal:             p.lt50 ? T1 * CFG.FNAL_PLAF : brut * CFG.FNAL_DEPL,
+    chomage:          T4   * CFG.CHOMAGE_PAT,
+    ags:              T4   * CFG.AGS,
+    dialogue:         brut * CFG.DIALOGUE_SOCIAL,
+    arrco_t1:         T1   * CFG.ARRCO_T1_PAT,
+    arrco_t2:         T2   * CFG.ARRCO_T2_PAT,
+    ceg_t1:           T1   * CFG.CEG_T1_PAT,
+    ceg_t2:           T2   * CFG.CEG_T2_PAT,
+    cet:              brut > pmss ? (T1 + T2) * CFG.CET_PAT : 0,
+    prevoyance:       p.cadre ? T1 * CFG.PREVOYANCE_CADRE : 0,
+    apec:             p.cadre ? Math.min(brut, pmss * 4) * CFG.APEC_PAT : 0,
+    formation:        brut * (p.lt50 ? CFG.FORMATION_11 : CFG.FORMATION_50),
+    apprentissage:    brut * CFG.APPRENTISSAGE,
+    apprentissage_am: p.alsace ? brut * CFG.APPRENTISSAGE_AM : 0,
+    peec:             !p.lt50 ? brut * CFG.PEEC : 0,
+    atmp:             brut * p.atmp,
+    vm:               p.vmTaux > 0 ? brut * p.vmTaux : 0
+  };
+
+  var total = 0;
+  for (var k in items) { total += items[k]; }
+  return { items: items, total: round2(total) };
+}
+
+function calcRGDU(brut, p) {
+  var RAB   = brut * 12;
+  var seuil = CFG.SMIC_ANNUEL * CFG.RGDU_SEUIL_SMIC;
+  if (RAB >= seuil) { return { coeff: 0, reduction: 0, applicable: false }; }
+
+  var Td    = p.lt50 ? CFG.RGDU_T_DELTA_50 : CFG.RGDU_T_DELTA_GE50;
+  var inner = Math.max(0, 0.5 * (3 * CFG.SMIC_ANNUEL / RAB - 1));
+  var coeff = CFG.RGDU_T_MIN + Td * Math.pow(inner, CFG.RGDU_EXPOSANT);
+  coeff     = Math.min(coeff, CFG.RGDU_T_MIN + Td);
+
+  return { coeff: coeff, reduction: round2(brut * coeff), applicable: true };
+}
+
+function brutFromNet(net, p) {
+  if (net <= 0) { return 0; }
+  var lo = net * 0.95;
+  var hi = net * 1.6;
+  for (var k = 0; k < 25; k++) {
+    if ((hi - calcSal(hi, p).total) >= net) { break; }
+    hi *= 1.3;
+    if (hi > net * 15) { hi = net * 15; break; }
+  }
+  for (var i = 0; i < 100; i++) {
+    var mid    = (lo + hi) / 2;
+    var midNet = mid - calcSal(mid, p).total;
+    if (Math.abs(midNet - net) < 0.001) { return mid; }
+    if (midNet < net) { lo = mid; } else { hi = mid; }
+  }
+  return (lo + hi) / 2;
+}
+
+function calculate() {
+  if (!state.salValue || state.salValue <= 0) { return null; }
+  var p = getParams();
+
+  var brut;
+  if (state.salType === 'brut') {
+    brut = state.salValue;
+  } else {
+    brut = brutFromNet(state.salValue, p);
+  }
+  brut = round2(brut);
+
+  var sal  = calcSal(brut, p);
+  var net  = round2(brut - sal.total);
+  var pat  = calcPat(brut, p);
+  var rgdu = calcRGDU(brut, p);
+
+  var trPat      = 0;
+  var trSurcharge= 0;
+  if (state.opts.tickets && p.trValeur > 0) {
+    var rawPat  = p.trValeur * CFG.TR_PART_PAT_MAX;
+    var excessPt= Math.max(0, rawPat - CFG.TR_PAT_MAX_EXONERE);
+    trSurcharge = round2(excessPt * 0.45 * p.trJours);
+    trPat       = round2(rawPat * p.trJours);
+  }
+
+  var mutuelleSurcharge = 0;
+  var mutuelleCeil = CFG.PASS_ANNUEL * 0.06 / 12;
+  if (p.mutuellePat > mutuelleCeil) {
+    mutuelleSurcharge = round2((p.mutuellePat - mutuelleCeil) * 0.45);
+  }
+
+  var extra = round2(
+    p.mutuellePat + mutuelleSurcharge +
+    trPat + trSurcharge +
+    p.transportPat + p.medecinePat
+  );
+
+  var coutNet = round2(pat.total - rgdu.reduction);
+  var total   = round2(brut + coutNet + extra);
+
+  return {
+    brut: brut, net: net,
+    sal: sal, pat: pat, rgdu: rgdu,
+    trPat: trPat, trSurcharge: trSurcharge,
+    mutuelleSurcharge: mutuelleSurcharge,
+    extra: extra, coutNet: coutNet,
+    total: total, annuel: round2(total * 12),
+    mult: net > 0 ? Math.round((total / net) * 1000) / 1000 : 0,
+    p: p
+  };
+}
+
+function renderAlerts(res) {
+  var html = '';
+  var smic = CFG.SMIC_MENSUEL;
+
+  if (res.brut < smic) {
+    html += '<div class="alert error"><span class="alert-icon">&#x26A0;&#xFE0F;</span>' +
+      '<span>Salaire inferieur au SMIC legale (' + fmt2(smic) +
+      '/mois). Interdit sauf derogation expresse (apprentis, temps partiel proportionnel).</span></div>';
+  }
+
+  if (res.p.contrat === 'cdd') {
+    html += '<div class="alert warn"><span class="alert-icon">&#x1F4CB;</span>' +
+      '<span>CDD : prime de precarite de 10&#x00A0;% sur le salaire brut cumule generalement' +
+      ' due en fin de contrat (soit environ ' + fmt2(res.brut * 0.10) +
+      '/mois si on la lisse). Non incluse dans ce calcul.</span></div>';
+  }
+
+  if (res.rgdu.applicable) {
+    html += '<div class="alert info"><span class="alert-icon">&#x2705;</span>' +
+      '<span>Reduction RGDU 2026 applicable : economie de <strong>' +
+      fmt2(res.rgdu.reduction) + '/mois</strong> (coeff.&#x00A0;' +
+      (res.rgdu.coeff * 100).toFixed(2) + '&#x00A0;% du brut).</span></div>';
+  }
+
+  if (res.p.region === 'dom') {
+    html += '<div class="alert warn"><span class="alert-icon">&#x1F334;</span>' +
+      '<span>DOM-TOM : les exonerations LODEOM ne sont pas modelisees.' +
+      ' Les resultats correspondent aux taux metropole et sont <strong>surestimates</strong>.' +
+      ' Contactez votre URSSAF locale.</span></div>';
+  }
+
+  return html;
+}
+
+function esc(s) {
+  if (typeof s !== 'string') s = String(s);
+  var div = document.createElement('div');
+  div.textContent = s;
+  return div.innerHTML;
+}
+
+function renderBreakdown(res) {
+  var pmss = CFG.PMSS;
+  var brut = res.brut;
+  var T1   = Math.min(brut, pmss);
+  var T2   = Math.max(0, Math.min(brut, pmss * 8) - pmss);
+  var T4   = Math.min(brut, pmss * 4);
+  var csgB = brut * CFG.CSG_BASE;
+  var p    = res.p;
+
+  function row(name, detail, amt) {
+    var cls = amt < 0 ? ' neg' : (amt === 0 ? ' zero' : '');
+    return '<div class="bk-row">' +
+      '<div class="bk-row-left">' +
+      '<div class="bk-row-name">' + esc(name) + '</div>' +
+      (detail ? '<div class="bk-row-detail">' + esc(detail) + '</div>' : '') +
+      '</div>' +
+      '<div class="bk-row-amt' + cls + '">' + fmt2(amt) + '</div>' +
+      '</div>';
+  }
+  function sub(label, amt) {
+    return '<div class="subtotal-row">' +
+      '<span>' + esc(label) + '</span>' +
+      '<span>' + fmt2(amt) + '</span>' +
+      '</div>';
+  }
+  function credit(label, amt) {
+    return '<div class="fillon-row">' +
+      '<span>' + esc(label) + '</span>' +
+      '<span>&#x2212;&#x00A0;' + fmt2(amt) + '</span>' +
+      '</div>';
+  }
+  function group(title, badge, content, open) {
+    return '<div class="bk-group' + (open ? ' open' : '') + '">' +
+      '<div class="bk-group-head" role="button" tabindex="0"' +
+      ' onclick="this.parentElement.classList.toggle(\'open\')"' +
+      ' onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();this.parentElement.classList.toggle(\'open\')}">' +
+      '<span class="bk-group-title">' + title + '</span>' +
+      '<span style="display:flex;align-items:center;gap:6px">' +
+      '<span class="bk-group-amt">' + badge + '</span>' +
+      '<span class="bk-arrow">&#9660;</span>' +
+      '</span>' +
+      '</div>' +
+      '<div class="bk-rows">' + content + '</div>' +
+      '</div>';
+  }
+
+  var g1 = row('Salaire brut mensuel', 'Base de tous les calculs', brut);
+
+  var g2 = '';
+  g2 += row('Vieillesse plafonnee',   fmt2(T1)   + ' x 6,90 %', T1 * CFG.VIEILLESSE_PLAF_SAL);
+  g2 += row('Vieillesse deplafonnee', fmt2(brut) + ' x 0,40 %', brut * CFG.VIEILLESSE_DEPLAF_SAL);
+  g2 += row('CSG deductible',         fmt2(csgB) + ' x 6,80 %', csgB * CFG.CSG_DEDUCTIBLE);
+  g2 += row('CSG non deductible',     fmt2(csgB) + ' x 2,40 %', csgB * CFG.CSG_NON_DEDUCTIBLE);
+  g2 += row('CRDS',                   fmt2(csgB) + ' x 0,50 %', csgB * CFG.CRDS);
+  g2 += row('AGIRC-ARRCO T1',         fmt2(T1)   + ' x 3,15 %', T1 * CFG.ARRCO_T1_SAL);
+  if (T2 > 0)
+    g2 += row('AGIRC-ARRCO T2',       fmt2(T2)   + ' x 8,64 %', T2 * CFG.ARRCO_T2_SAL);
+  g2 += row('CEG T1',                 fmt2(T1)   + ' x 0,86 %', T1 * CFG.CEG_T1_SAL);
+  if (T2 > 0)
+    g2 += row('CEG T2',               fmt2(T2)   + ' x 1,08 %', T2 * CFG.CEG_T2_SAL);
+  if (brut > pmss)
+    g2 += row('CET (sal.)',           fmt2(T1+T2) + ' x 0,14 %', (T1+T2) * CFG.CET_SAL);
+  if (p.alsace)
+    g2 += row('Maladie Alsace-Moselle', fmt2(brut) + ' x 1,30 %', brut * CFG.MALADIE_SAL_AM);
+  if (p.cadre)
+    g2 += row('APEC (sal.)',          fmt2(Math.min(brut, pmss*4)) + ' x 0,024 %',
+              Math.min(brut, pmss*4) * CFG.APEC_SAL);
+  g2 += sub('Total charges salariales', res.sal.total);
+  g2 += sub('Salaire net (avant IR)',   res.net);
+
+  var g3 = '';
+  g3 += row('Assurance maladie',       fmt2(brut) + ' x 13,00 %', brut * CFG.MALADIE_PAT);
+  if (p.alsace)
+    g3 += row('Maladie supp. Alsace-Moselle', fmt2(brut) + ' x 1,50 %', brut * CFG.MALADIE_PAT_AM);
+  g3 += row('Allocations familiales',  fmt2(brut) + ' x 5,25 %',  brut * CFG.AF_PAT);
+  g3 += row('Vieillesse plafonnee',    fmt2(T1)   + ' x 8,55 %',  T1   * CFG.VIEILLESSE_PLAF_PAT);
+  g3 += row('Vieillesse deplafonnee',  fmt2(brut) + ' x 2,11 %',  brut * CFG.VIEILLESSE_DEPLAF_PAT);
+  g3 += row('CSA',                     fmt2(brut) + ' x 0,30 %',  brut * CFG.CSA_PAT);
+  if (p.lt50)
+    g3 += row('FNAL (< 50 sal.)',      fmt2(T1)   + ' x 0,10 %',  T1   * CFG.FNAL_PLAF);
+  else
+    g3 += row('FNAL (>= 50 sal.)',     fmt2(brut) + ' x 0,50 %',  brut * CFG.FNAL_DEPL);
+  g3 += row('Assurance chomage',       fmt2(T4)   + ' x 4,00 %',  T4   * CFG.CHOMAGE_PAT);
+  g3 += row('AGS',                     fmt2(T4)   + ' x 0,25 %',  T4   * CFG.AGS);
+  g3 += row('Dialogue social',         fmt2(brut) + ' x 0,016 %', brut * CFG.DIALOGUE_SOCIAL);
+  g3 += row('AGIRC-ARRCO T1',          fmt2(T1)   + ' x 4,72 %',  T1   * CFG.ARRCO_T1_PAT);
+  if (T2 > 0)
+    g3 += row('AGIRC-ARRCO T2',        fmt2(T2)   + ' x 12,95 %', T2   * CFG.ARRCO_T2_PAT);
+  g3 += row('CEG T1',                  fmt2(T1)   + ' x 1,29 %',  T1   * CFG.CEG_T1_PAT);
+  if (T2 > 0)
+    g3 += row('CEG T2',                fmt2(T2)   + ' x 1,62 %',  T2   * CFG.CEG_T2_PAT);
+  if (brut > pmss)
+    g3 += row('CET (pat.)',            fmt2(T1+T2) + ' x 0,21 %', (T1+T2) * CFG.CET_PAT);
+  if (p.cadre) {
+    g3 += row('Prevoyance cadre',      fmt2(T1)   + ' x 1,50 %',  T1   * CFG.PREVOYANCE_CADRE);
+    g3 += row('APEC (pat.)',           fmt2(Math.min(brut,pmss*4)) + ' x 0,036 %',
+              Math.min(brut, pmss*4) * CFG.APEC_PAT);
+  }
+  g3 += row('Formation professionnelle',
+    fmt2(brut) + ' x ' + (p.lt50 ? '0,55' : '1,00') + ' %',
+    brut * (p.lt50 ? CFG.FORMATION_11 : CFG.FORMATION_50));
+  g3 += row('Taxe apprentissage',      fmt2(brut) + ' x 0,68 %',  brut * CFG.APPRENTISSAGE);
+  if (p.alsace)
+    g3 += row('Taxe apprentissage AM', fmt2(brut) + ' x 0,44 %',  brut * CFG.APPRENTISSAGE_AM);
+  if (!p.lt50)
+    g3 += row('PEEC logement',         fmt2(brut) + ' x 0,45 %',  brut * CFG.PEEC);
+  g3 += row('AT/MP (estimatif)',
+    fmt2(brut) + ' x ' + (p.atmp * 100).toFixed(1) + ' %',
+    brut * p.atmp);
+  if (p.vmTaux > 0)
+    g3 += row('Versement mobilite',
+      fmt2(brut) + ' x ' + (p.vmTaux * 100).toFixed(2) + ' %',
+      brut * p.vmTaux);
+  g3 += sub('Sous-total charges patronales', res.pat.total);
+  if (res.rgdu.applicable) {
+    g3 += credit(
+      'Reduction RGDU 2026 (coeff. ' + (res.rgdu.coeff * 100).toFixed(2) + ' %)',
+      res.rgdu.reduction
+    );
+  }
+  g3 += sub('Charges patronales nettes', res.coutNet);
+
+  var g4 = '';
+  var mCeil = CFG.PASS_ANNUEL * 0.06 / 12;
+  if (p.mutuellePat > 0) {
+    g4 += row('Mutuelle (part patronale)',
+      'Exon. <= ' + fmt2(mCeil) + '/mois (6 % PASS)',
+      p.mutuellePat);
+    if (res.mutuelleSurcharge > 0) {
+      g4 += row('Cotisations sur exces mutuelle',
+        fmt2(p.mutuellePat - mCeil) + ' x ~45 %',
+        res.mutuelleSurcharge);
+    }
+  }
+  if (res.trPat > 0) {
+    g4 += row('Tickets restaurant (part patronale)',
+      '60 % x ' + fmt2(p.trValeur) + ' x ' + p.trJours + ' j',
+      res.trPat);
+    if (res.trSurcharge > 0) {
+      g4 += row('Cotisations exces TR (> 6,83 EUR/titre)',
+        fmt2(Math.max(0, p.trValeur * CFG.TR_PART_PAT_MAX - CFG.TR_PAT_MAX_EXONERE)) +
+        ' x ' + p.trJours + ' j x ~45 %',
+        res.trSurcharge);
+    }
+  }
+  if (p.transportPat > 0)
+    g4 += row('Remboursement transport', 'Exonere (prise en charge legale)', p.transportPat);
+  if (p.medecinePat > 0)
+    g4 += row('Medecine du travail', fmt2(p.medecinePat * 12) + '/an / 12', p.medecinePat);
+  if (g4) { g4 += sub('Sous-total complements', res.extra); }
+
+  var html = '';
+  html += group('Salaire brut', fmt2(brut), g1, false);
+  html += group('Charges salariales', '&#x2212; ' + fmt2(res.sal.total), g2, false);
+  html += group('Charges patronales', fmt2(res.pat.total) + ' &#x2192; ' + fmt2(res.coutNet), g3, true);
+  if (res.extra > 0 && g4) {
+    html += group('Complements employeur', fmt2(res.extra), g4, false);
+  }
+  html += '<div class="total-row blue-t">' +
+    '<div class="total-label">Cout total mensuel</div>' +
+    '<div class="total-amt">' + fmt2(res.total) + '</div>' +
+    '</div>';
+  html += '<div class="total-row orange-t">' +
+    '<div class="total-label">Cout annuel (x 12)</div>' +
+    '<div class="total-amt">' + fmt2(res.annuel) + '</div>' +
+    '</div>';
+  return html;
+}
+
+function recalc() {
+  updateRegionNote();
+  updateTRNote();
+  updateVMWarn();
+  updateMutuelleWarn();
+  saveStorage();
+
+  var res = calculate();
+
+  if (!res) {
+    document.getElementById('emptyState').style.display    = 'block';
+    document.getElementById('resultsContent').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('emptyState').style.display    = 'none';
+  document.getElementById('resultsContent').style.display = 'block';
+
+  document.getElementById('metricNet').textContent    = fmtK(res.net);
+  document.getElementById('metricCout').textContent   = fmtK(res.total);
+  document.getElementById('metricAnnuel').textContent = fmtK(res.annuel);
+  document.getElementById('multiplierValue').textContent =
+    res.mult.toFixed(2).replace('.', ',') + ' EUR';
+
+  document.getElementById('alertsZone').innerHTML    = renderAlerts(res);
+  document.getElementById('breakdownZone').innerHTML = renderBreakdown(res);
+}
+
+function onSalInput(val, src) {
+  var num = parseFloat(val);
+  if (isNaN(num) || num <= 0) {
+    state.salValue = null;
+    recalc();
+    return;
+  }
+  state.salValue = num;
+  var slider   = document.getElementById('salSlider');
+  var sliderLo = parseFloat(slider.min);
+  var sliderHi = parseFloat(slider.max);
+  if (src === 'slider') {
+    document.getElementById('salInput').value = num;
+  } else {
+    slider.value = clamp(num, sliderLo, sliderHi);
+  }
+  var pct = (Math.min(num, sliderHi) - sliderLo) / (sliderHi - sliderLo) * 100;
+  document.getElementById('salProgress').style.width = clamp(pct, 0, 100) + '%';
+  recalc();
+}
+
+function toggleSalType(type) {
+  state.salType = type;
+  document.getElementById('btn-net').classList.toggle('active', type === 'net');
+  document.getElementById('btn-brut').classList.toggle('active', type === 'brut');
+  document.getElementById('btn-net').setAttribute('aria-pressed', String(type === 'net'));
+  document.getElementById('btn-brut').setAttribute('aria-pressed', String(type === 'brut'));
+
+  var slider = document.getElementById('salSlider');
+  var meta   = document.getElementById('sliderMeta');
+
+  if (type === 'net') {
+    slider.min = 1400; slider.max = 15000;
+    document.getElementById('salLabel').textContent =
+      'Salaire net mensuel (\u20AC)';
+    document.getElementById('salNote').textContent  =
+      'Salaire net avant impot sur le revenu souhaite';
+    if (meta) {
+      meta.children[0].textContent = '1\u00A0400\u00A0\u20AC';
+      meta.children[1].textContent = '15\u00A0000\u00A0\u20AC';
+    }
+  } else {
+    slider.min = 1820; slider.max = 20000;
+    document.getElementById('salLabel').textContent =
+      'Salaire brut mensuel (\u20AC)';
+    document.getElementById('salNote').textContent  =
+      'Salaire brut contractuel (avant deduction des charges salariales)';
+    if (meta) {
+      meta.children[0].textContent = '1\u00A0820\u00A0\u20AC';
+      meta.children[1].textContent = '20\u00A0000\u00A0\u20AC';
+    }
+  }
+  recalc();
+}
+
+function toggleOpt(key) {
+  state.opts[key] = !state.opts[key];
+  var item = document.getElementById('opt-' + key);
+  if (item) {
+    item.classList.toggle('on', state.opts[key]);
+    var tog = item.querySelector('.opt-toggle');
+    if (tog) { tog.setAttribute('aria-expanded', state.opts[key] ? 'true' : 'false'); }
+  }
+  recalc();
+}
+
+function updateRegionNote() {
+  var region = document.querySelector('input[name="region"]:checked').value;
+  var msg = {
+    metro:  '',
+    alsace: 'Regime local : maladie patronale +1,50 % et salariale +1,30 % sur la totalite du brut.',
+    dom:    'DOM-TOM : les allegements LODEOM (LADOM, ZFU...) ne sont pas modelises. ' +
+            'Les resultats affiches correspondent aux taux metropole et sont SURESTIMATES. ' +
+            'Consultez votre URSSAF locale.'
+  };
+  var el = document.getElementById('regionNote');
+  if (el) { el.textContent = msg[region] || ''; }
+}
+
+function updateTRNote() {
+  if (!state.opts.tickets) { return; }
+  var val   = parseFloat(document.getElementById('trValeur').value) || 0;
+  var jours = parseInt(document.getElementById('trJours').value, 10) || 0;
+  var rawPat= val * CFG.TR_PART_PAT_MAX;
+  var xmpt  = Math.min(rawPat, CFG.TR_PAT_MAX_EXONERE);
+  var el    = document.getElementById('trNote');
+  if (!el) { return; }
+  var msg = 'Part patronale brute : ' + fmt2(rawPat) + '/titre (60 % x ' + fmt2(val) + '). ' +
+            'Max exonere : ' + fmt2(xmpt) + '/titre.';
+  if (val > CFG.TR_PLAFOND_EXONERE) {
+    var excess = (rawPat - CFG.TR_PAT_MAX_EXONERE) * jours;
+    msg += ' \u26A0\uFE0F Valeur > ' + fmt2(CFG.TR_PLAFOND_EXONERE) +
+           ' : exces mensuel ' + fmt2(excess) +
+           ' soumis a cotisations (surcharge ~45 % incluse dans le total).';
+  }
+  msg += ' \u2192 Cout total mensuel : ' + fmt2(rawPat * jours);
+  el.textContent = msg;
+}
+
+function updateMutuelleWarn() {
+  if (!state.opts.mutuelle) { return; }
+  var montant = parseFloat(document.getElementById('mutuelleMontant').value) || 0;
+  var el      = document.getElementById('mutuelleWarn');
+  if (!el) { return; }
+  var ceil = CFG.PASS_ANNUEL * 0.06 / 12;
+  if (montant > ceil) {
+    el.style.display  = '';
+    el.textContent    = '\u26A0\uFE0F ' + fmt2(montant) +
+      ' > plafond d\'exoneration (' + fmt2(ceil) + '/mois = 6 % PASS / 12). ' +
+      'L\'exces (' + fmt2(montant - ceil) + ') est assujetti a cotisations.' +
+      ' Surcharge ~45 % estimee et incluse dans le total.';
+  } else {
+    el.style.display = 'none';
+  }
+}
+
+function updateVMWarn() {
+  if (!state.opts.vm) { return; }
+  var effectif = parseInt(document.getElementById('effectif').value, 10);
+  var vmTaux   = parseFloat(document.getElementById('vmTaux').value) || 0;
+  var el       = document.getElementById('vm-warn');
+  if (el) { el.style.display = (effectif >= 50 && vmTaux > 0) ? '' : 'none'; }
+}
+
+function openModal() {
+  buildSources();
+  buildLinks();
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function() {
+    var btn = document.querySelector('.modal-close-btn');
+    if (btn) { btn.focus(); }
+  }, 60);
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  var fb = document.querySelector('.float-btn');
+  if (fb) { fb.focus(); }
+}
+
+function closeModalOverlay(e) {
+  if (e.target === document.getElementById('modalOverlay')) { closeModal(); }
+}
+
+function switchTab(tab, btn) {
+  document.querySelectorAll('.modal-tab').forEach(function(t) {
+    t.classList.remove('active');
+  });
+  btn.classList.add('active');
+  document.querySelectorAll('.modal-pane').forEach(function(p) {
+    p.classList.remove('active');
+  });
+  document.getElementById('pane-' + tab).classList.add('active');
+}
+
+function buildSources() {
+  var tbody = document.getElementById('sourcesBody');
+  if (tbody && tbody.children.length === 0) {
+    SOURCES.forEach(function(s) {
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td>' + s.n + '</td>' +
+        '<td><span class="rate-pill">' + s.t + '</span></td>' +
+        '<td>' + s.a + '</td>' +
+        '<td><a href="' + s.u + '" target="_blank" rel="noopener">' + s.s + '</a></td>' +
+        '<td>' + s.d + '</td>';
+      tbody.appendChild(tr);
+    });
+  }
+}
+
+function buildLinks() {
+  var links = document.getElementById('sourceLinks');
+  if (links && links.children.length === 0) {
+    SOURCE_LINKS.forEach(function(l) {
+      var div = document.createElement('div');
+      div.className = 'link-card';
+      div.innerHTML =
+        '<div><div class="lc-title">' + l.t + '</div>' +
+        '<div class="lc-desc">' + l.d + '</div></div>' +
+        '<a class="lc-link" href="' + l.u + '" target="_blank" rel="noopener">Voir &#x2192;</a>';
+      links.appendChild(div);
+    });
+  }
+}
+
+var _toastTimer = null;
+function showToast(msg) {
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  if (_toastTimer) { clearTimeout(_toastTimer); }
+  _toastTimer = setTimeout(function() { el.classList.remove('show'); }, 2800);
+}
+
+function shareURL() {
+  var p  = getParams();
+  var qs = new URLSearchParams({
+    sal:  state.salValue || '',
+    type: state.salType,
+    eff:  p.effectif,
+    sec:  p.atmp,
+    reg:  p.region,
+    sta:  p.cadre ? 'cadre' : 'noncadre'
+  });
+  var base = (location.origin && location.origin !== 'null')
+    ? location.origin + location.pathname
+    : location.href.split('?')[0];
+  var url = base + '?' + qs.toString();
+  var sf  = document.getElementById('shareField');
+  sf.style.display = 'flex';
+  document.getElementById('shareUrl').value = url;
+}
+
+function copyURL() {
+  var text = document.getElementById('shareUrl').value;
+  if (!text) { return; }
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text)
+      .then(function() {
+        showToast('✅ Lien copié !');
+        document.getElementById('shareField').style.display = 'none';
+      })
+      .catch(function() { fallbackCopy(text); });
+  } else {
+    fallbackCopy(text);
+  }
+}
+
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.cssText = 'position:fixed;top:0;left:0;width:2px;height:2px;opacity:0;border:0';
+  document.body.appendChild(ta);
+  ta.focus(); ta.select();
+  var ok = false;
+  try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+  document.body.removeChild(ta);
+  if (ok) {
+    showToast('✅ Lien copié !');
+    document.getElementById('shareField').style.display = 'none';
+  } else {
+    document.getElementById('shareUrl').select();
+    showToast('Selectionnez le lien puis Ctrl+C');
+  }
+}
+
+function exportPDF(btn) {
+  if (!window.jspdf || !window.jspdf.jsPDF) {
+    showToast('❌ PDF indisponible. Vérifiez votre connexion.');
+    return;
+  }
+  
+  try {
+    var res = calculate();
+    if (!res) {
+      showToast('⚠️ Entrez un salaire pour exporter');
+      return;
+    }
+
+    var originalText = btn ? btn.textContent : '📄 Exporter PDF';
+    btn.textContent = '⏳ Génération...';
+    btn.disabled = true;
+
+    setTimeout(function() {
+      try {
+        var doc = new window.jspdf.jsPDF({ unit: 'mm', format: 'a4' });
+        var date = new Date().toLocaleDateString('fr-FR');
+
+        doc.setFillColor(29, 78, 216);
+        doc.rect(0, 0, 210, 30, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(18);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Coût Salarié', 14, 13);
+        doc.setFontSize(9);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Simulation du coût réel d\'un recrutement - ' + date, 14, 22);
+
+        var y = 38;
+        doc.setTextColor(17, 24, 39);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(11);
+        doc.text('Paramètres de la simulation', 14, y); y += 8;
+
+        var effSel = document.getElementById('effectif');
+        var effTxt = effSel.options[effSel.selectedIndex].text;
+        var rows = [
+          ['Salaire net mensuel (avant IR)', fmt2(res.net)],
+          ['Salaire brut mensuel',           fmt2(res.brut)],
+          ['Statut',    res.p.cadre ? 'Cadre' : 'Non-cadre'],
+          ['Effectif',  effTxt],
+          ['Region',    res.p.region],
+          ['AT/MP',     (res.p.atmp * 100).toFixed(1) + ' % (estimatif)']
+        ];
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9);
+        rows.forEach(function(r) {
+          doc.text(r[0], 14, y);
+          doc.text(r[1], 140, y, { align: 'right' });
+          y += 6;
+        });
+
+        y += 4;
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(11);
+        doc.text('Résultats', 14, y); y += 8;
+
+        var results = [
+          ['Salaire net (avant IR)',         fmt2(res.net),           false],
+          ['Charges salariales',             fmt2(res.sal.total),     false],
+          ['Charges patronales brutes',      fmt2(res.pat.total),     false],
+          ['Reduction RGDU 2026',            res.rgdu.applicable
+            ? ('- ' + fmt2(res.rgdu.reduction)) : 'N/A',             false],
+          ['Charges patronales nettes',      fmt2(res.coutNet),       false],
+          ['Complements employeur',          fmt2(res.extra),         false],
+          ['COUT TOTAL MENSUEL',             fmt2(res.total),         true],
+          ['COUT TOTAL ANNUEL',              fmt2(res.annuel),        true],
+          ['Multiplicateur net',             'x ' + res.mult.toFixed(2), true]
+        ];
+        doc.setFontSize(9);
+        results.forEach(function(r) {
+          if (r[2]) {
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(10);
+          } else {
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(9);
+          }
+          doc.text(r[0], 14, y);
+          doc.text(r[1], 140, y, { align: 'right' });
+          y += 6;
+        });
+
+        y += 6;
+        doc.setFont('helvetica', 'italic');
+        doc.setFontSize(7.5);
+        doc.setTextColor(107, 114, 128);
+        doc.text(
+          'Outil informatif - Taux URSSAF 2026. AT/MP estimatif. Net = net avant prélèvement à la source.',
+          14, y
+        );
+
+        doc.save('CoutSalarie_' + date.replace(/\//g, '-') + '.pdf');
+        showToast('✅ PDF téléchargé !');
+      } catch (pdfErr) {
+        console.error('PDF generation error:', pdfErr);
+        showToast('❌ Erreur lors de la génération du PDF');
+      } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    }, 200);
+  } catch (e) {
+    console.error('Export error:', e);
+    showToast('❌ Erreur lors de l\'export');
+  }
+}
+
+function saveStorage() {
+  try {
+    if (!window.localStorage) return;
+    
+    var effSel = document.getElementById('effectif');
+    var secSel = document.getElementById('secteur');
+    var staRb  = document.querySelector('input[name="statut"]:checked');
+    var regRb  = document.querySelector('input[name="region"]:checked');
+    var ctrRb  = document.querySelector('input[name="contrat"]:checked');
+    
+    var data = JSON.stringify({
+      version:  4,
+      timestamp: new Date().toISOString(),
+      salValue: state.salValue,
+      salType:  state.salType,
+      opts:     state.opts,
+      effectif: effSel ? effSel.value : null,
+      secteur:  secSel ? secSel.value : null,
+      statut:   staRb  ? staRb.value  : null,
+      region:   regRb  ? regRb.value  : null,
+      contrat:  ctrRb  ? ctrRb.value  : null
+    });
+    
+    localStorage.setItem(STORAGE_KEY, data);
+  } catch (e) {
+    if (e.name === 'QuotaExceededError') {
+      console.warn('localStorage quota exceeded');
+      try {
+        localStorage.removeItem(STORAGE_KEY + '_backup');
+      } catch (e2) {}
+    }
+  }
+}
+
+function loadStorage() {
+  try {
+    var raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) { return; }
+    var d = JSON.parse(raw);
+    if (!d || !d.salValue) { return; }
+
+    state.salValue = d.salValue;
+    state.salType  = d.salType || 'net';
+    state.opts     = Object.assign({}, state.opts, d.opts || {});
+
+    toggleSalType(state.salType);
+    document.getElementById('salInput').value = state.salValue;
+    var slider = document.getElementById('salSlider');
+    slider.value = clamp(state.salValue, parseFloat(slider.min), parseFloat(slider.max));
+
+    // Restore effectif
+    if (d.effectif) {
+      var effSel = document.getElementById('effectif');
+      if (effSel) {
+        for (var i = 0; i < effSel.options.length; i++) {
+          if (effSel.options[i].value == d.effectif) { effSel.selectedIndex = i; break; }
+        }
+      }
+    }
+    // Restore secteur
+    if (d.secteur) {
+      var secSel = document.getElementById('secteur');
+      if (secSel) {
+        for (var j = 0; j < secSel.options.length; j++) {
+          if (secSel.options[j].value == d.secteur) { secSel.selectedIndex = j; break; }
+        }
+      }
+    }
+    // Restore statut
+    if (d.statut) {
+      var staRb = document.querySelector('input[name="statut"][value="' + d.statut + '"]');
+      if (staRb) { staRb.checked = true; }
+    }
+    // Restore region
+    if (d.region) {
+      var regRb = document.querySelector('input[name="region"][value="' + d.region + '"]');
+      if (regRb) { regRb.checked = true; }
+    }
+    // Restore contrat
+    if (d.contrat) {
+      var ctrRb = document.querySelector('input[name="contrat"][value="' + d.contrat + '"]');
+      if (ctrRb) { ctrRb.checked = true; }
+    }
+
+    Object.keys(state.opts).forEach(function(k) {
+      if (state.opts[k]) {
+        var item = document.getElementById('opt-' + k);
+        if (item) {
+          item.classList.add('on');
+          var tog = item.querySelector('.opt-toggle');
+          if (tog) { tog.setAttribute('aria-expanded', 'true'); }
+        }
+      }
+    });
+  } catch (e) {}
+}
+
+function loadFromURL() {
+  var q = new URLSearchParams(location.search);
+  var sal = parseFloat(q.get('sal'));
+  if (isNaN(sal) || sal <= 0) { return false; }
+
+  state.salValue = sal;
+  state.salType  = q.get('type') === 'brut' ? 'brut' : 'net';
+  toggleSalType(state.salType);
+  document.getElementById('salInput').value = sal;
+  var slider = document.getElementById('salSlider');
+  slider.value = clamp(sal, parseFloat(slider.min), parseFloat(slider.max));
+
+  var eff = q.get('eff');
+  if (eff) {
+    var sel = document.getElementById('effectif');
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value == eff) { sel.selectedIndex = i; break; }
+    }
+  }
+  var sec = q.get('sec');
+  if (sec) {
+    var sel2 = document.getElementById('secteur');
+    for (var j = 0; j < sel2.options.length; j++) {
+      if (sel2.options[j].value == sec) { sel2.selectedIndex = j; break; }
+    }
+  }
+  var sta = q.get('sta');
+  if (sta) {
+    var rb = document.querySelector('input[name="statut"][value="' + sta + '"]');
+    if (rb) { rb.checked = true; }
+  }
+  var reg = q.get('reg');
+  if (reg) {
+    var rb2 = document.querySelector('input[name="region"][value="' + reg + '"]');
+    if (rb2) { rb2.checked = true; }
+  }
+  return true;
+}
+
+
+/* =============================================================
+   COOKIE SETTINGS MODAL
+============================================================= */
+function openCookieSettingsModal() {
+  document.getElementById('cookieSettingsModal').classList.add('open');
+  closeCookieBanner();
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCookieSettingsModal() {
+  document.getElementById('cookieSettingsModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeCookieModalOverlay(e) {
+  if (e.target === document.getElementById('cookieSettingsModal')) {
+    closeCookieSettingsModal();
+  }
+}
+
+function saveFromModal() {
+  cookies.essential = true;
+  saveCookiePreferences();
+  closeCookieSettingsModal();
+  showToast('✅ Préférences enregistrées');
+}
+
+function rejectAllFromModal() {
+  cookies = { essential: true };
+  saveCookiePreferences();
+  closeCookieSettingsModal();
+  showToast('✅ Préférences enregistrées');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var urlLoaded = location.search.length > 1 && loadFromURL();
+  if (!urlLoaded) { loadStorage(); }
+
+  updateRegionNote();
+  updateTRNote();
+  updateVMWarn();
+  recalc();
+
+  loadCookiePreferences();
+  updateThemeIcon();
+  
+  var acceptBtn = document.getElementById('cookieAccept');
+  var rejectBtn = document.getElementById('cookieReject');
+  var settingsBtn = document.getElementById('cookieSettings');
+  
+  if (acceptBtn) acceptBtn.addEventListener('click', acceptAllCookies);
+  if (rejectBtn) rejectBtn.addEventListener('click', rejectCookies);
+  if (settingsBtn) {
+    settingsBtn.addEventListener('click', openCookieSettingsModal);
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+      closeCookieSettingsModal();
+    }
+  });
+
+  // Progress bar init
+  var salProgress = document.getElementById('salProgress');
+  if (salProgress) { salProgress.style.width = '0%'; }
+});
+</script>
+</body>
+</html>
