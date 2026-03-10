@@ -31,6 +31,9 @@ CS/
    - Build command : *(laisser vide)*
    - Build output directory : `/` (ou `.`)
 4. Déployer
+5. **Important** : le site est dans le sous-dossier `CS/`.
+     - Option A (recommandée) : **Root directory = `CS`**
+     - Option B : garder la racine du repo, mais alors `Build output directory = CS`
 
 ## Fichiers images à ajouter
 
