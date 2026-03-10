@@ -110,7 +110,10 @@ html { scroll-behavior: smooth; }
 
 [data-theme="dark"] .info-box,
 [data-theme="dark"] .warning-box,
-[data-theme="dark"] .success-box
+[data-theme="dark"] .success-box{
+  color: var(--gray-900);
+}
+
 
 /* bouton theme */
 .theme-toggle {
@@ -773,16 +776,17 @@ body {
     });
   });
 
-  // Handle URL hash on page load
-  var initHash = location.hash.replace('#', '');
-  if (initHash) {
-    var initLink = document.querySelector('#subnav-legal a[data-target="' + initHash + '"]');
-    if (initLink) {
-      initLink.click();
+// Handle URL hash on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    var initHash = location.hash.replace('#', '');
+    if (initHash) {
+      var initLink = document.querySelector('#subnav-legal a[data-target="' + initHash + '"]');
+      if (initLink) {
+        initLink.click();
+      }
     }
-  }
-
-  updateThemeIcon();
+    updateThemeIcon();
+  });
 </script>
 </body>
 </html>
