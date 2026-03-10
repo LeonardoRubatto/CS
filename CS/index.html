@@ -1521,21 +1521,21 @@ body {
       <div class="card-body">
 
         <div class="reform-banner">
-          <strong>&#x26A1; Reforme RGDU 2026 &#x2014; LFSS 2025 art. 18</strong>
-          Taux de cotisations inchanges (taux reduits supprimes au 01/01/2026). La reduction degressive
-          est elargie : seuil porte de 1,6 a 3&#x00A0;x SMIC. Les taux pleins sont appliques d'abord,
-          puis la reduction RGDU est deduite.
+          <strong>&#x26A1; Réforme RGDU 2026 &#x2014; LFSS 2025 art. 18</strong>
+          Taux de cotisations inchangés (taux réduits supprimes au 01/01/2026). La réduction dégressive
+          est élargie : seuil porte de 1,6 a 3&#x00A0;x SMIC. Les taux pleins sont appliqués d'abord,
+          puis la réduction RGDU est déduite.
         </div>
 
         <div class="scope-note">
           <strong>Perimetre&#x00A0;:</strong> salaire net&#x00A0;=&#x00A0;<em>net avant impot sur le revenu</em>
-          (prelevement a la source non inclus). Hors bonus-malus chomage, avantages en nature, accords de branche.
+          (prélevement à la source non inclus). Hors bonus-malus chômage, avantages en nature, accords de branche.
           <br><strong>Transparence&#x00A0;:</strong> AT/MP&#x00A0;= taux estimatif sectoriel,
-          DOM-TOM non modelise (taux metropole affiches).
+          DOM-TOM non modelisé (taux métropole affichés).
         </div>
 
         <div class="form-section">
-          <div class="sec-label">Remuneration</div>
+          <div class="sec-label">Rémuneration</div>
           <div class="seg-ctrl">
             <button type="button" class="seg-btn active" id="btn-net" aria-pressed="true"
               onclick="toggleSalType('net')">Salaire net</button>
@@ -1546,7 +1546,7 @@ body {
             <label class="field-label" id="salLabel" for="salInput">Salaire net mensuel (&#x20AC;)</label>
             <input type="number" id="salInput" min="0" max="99999" step="50"
               placeholder="Ex : 2 500" oninput="onSalInput(this.value,'input')">
-            <div class="field-note" id="salNote">Salaire net avant impot sur le revenu souhaite</div>
+            <div class="field-note" id="salNote">Salaire net avant impot sur le revenu souhaité</div>
           </div>
           <div class="slider-wrap">
             <input type="range" class="range-input" id="salSlider"
@@ -1586,7 +1586,7 @@ body {
             </div>
           </div>
           <div class="field-note" style="margin-top:8px">
-            Informatif &#x2014; cotisations obligatoires identiques. Prime de precarite CDD signalee.
+            Informatif &#x2014; cotisations obligatoires identiques. Prime de précarité CDD signalée.
           </div>
         </div>
 
@@ -1605,10 +1605,10 @@ body {
           <div class="sec-label">Effectif</div>
           <div class="field">
             <select id="effectif" onchange="recalc()">
-              <option value="10">Moins de 11 salaries</option>
-              <option value="30" selected>11 a 49 salaries</option>
-              <option value="100">50 a 249 salaries</option>
-              <option value="250">250 salaries et plus</option>
+              <option value="10">Moins de 11 salariés</option>
+              <option value="30" selected>11 a 49 salariés</option>
+              <option value="100">50 a 249 salariés</option>
+              <option value="250">250 salariés et plus</option>
             </select>
           </div>
         </div>
@@ -1619,13 +1619,13 @@ body {
             <select id="secteur" onchange="recalc()">
               <option value="0.010">Tertiaire / Bureau (approx. 1,0 %)</option>
               <option value="0.015" selected>Commerce / Distribution (approx. 1,5 %)</option>
-              <option value="0.018">Sante / Social (approx. 1,8 %)</option>
-              <option value="0.025">Industrie manufacturiere (approx. 2,5 %)</option>
-              <option value="0.035">BTP - Batiment (approx. 3,5 %)</option>
+              <option value="0.018">Santé / Social (approx. 1,8 %)</option>
+              <option value="0.025">Industrie manufacturière (approx. 2,5 %)</option>
+              <option value="0.035">BTP - Bâtiment (approx. 3,5 %)</option>
               <option value="0.015">Autre / Inconnu (moyenne approx. 1,5 %)</option>
             </select>
             <div class="field-note">
-              &#x26A0;&#xFE0F; Votre taux exact est notifie par l'URSSAF/CARSAT. Valeur estimative.
+              &#x26A0;&#xFE0F; Votre taux exact est notifié par l'URSSAF/CARSAT. Valeur estimative.
             </div>
           </div>
         </div>
@@ -1635,7 +1635,7 @@ body {
           <div class="radio-group">
             <div class="radio-pill">
               <input type="radio" name="region" id="r-metro" value="metro" checked onchange="recalc()">
-              <label for="r-metro">France metro.</label>
+              <label for="r-metro">France métro.</label>
             </div>
             <div class="radio-pill">
               <input type="radio" name="region" id="r-alsace" value="alsace" onchange="recalc()">
@@ -1656,7 +1656,7 @@ body {
     <div class="card">
       <div class="card-head">
         <div class="card-head-icon">&#x2795;</div>
-        <h2>Elements complementaires</h2>
+        <h2>Élements complémentaires</h2>
       </div>
       <div class="card-body">
 
@@ -1676,8 +1676,8 @@ body {
               <label class="field-label" for="mutuelleMontant">Part patronale mensuelle (&#x20AC;)</label>
               <input type="number" id="mutuelleMontant" value="50" min="0" step="1" oninput="recalc()">
               <div class="field-note">
-                Min. legal : 50&#x00A0;% de la cotisation. Exoneration jusqu'a 6&#x00A0;% du PASS
-                (plafond&#x00A0;&#x2248;&#x00A0;240&#x00A0;&#x20AC;/mois). Au-dela : cotisations sur l'exces.
+                Min. legal : 50&#x00A0;% de la cotisation. Éxoneration jusqu'à 6&#x00A0;% du PASS
+                (plafond&#x00A0;&#x2248;&#x00A0;240&#x00A0;&#x20AC;/mois). Au-delà : cotisations sur l'excès.
               </div>
               <div class="field-note" id="mutuelleWarn"
                 style="display:none;color:#92400E;background:#FFFBEB;border:1px solid #FCD34D;border-radius:7px;padding:8px 10px;margin-top:6px;font-weight:600">
@@ -1728,9 +1728,9 @@ body {
               <label class="field-label" for="transportMontant">Montant mensuel pris en charge (&#x20AC;)</label>
               <input type="number" id="transportMontant" value="44" min="0" oninput="recalc()">
               <div class="field-note">
-                Obligation legale : 50&#x00A0;% de l'abonnement TC.
+                Obligation légale : 50&#x00A0;% de l'abonnement TC.
                 Navigo IDF&#x00A0;: 88&#x00A0;&#x20AC;/mois &#x2192; min.&#x00A0;44&#x00A0;&#x20AC;.
-                Exonere de charges dans les limites reglementaires.
+                Éxoneré de charges dans les limites reglementaires.
               </div>
             </div>
           </div>
@@ -1743,7 +1743,7 @@ body {
             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleOpt('vm')}">
             <div class="opt-toggle-left">
               <span class="opt-toggle-icon" aria-hidden="true">&#x1F3D9;&#xFE0F;</span>
-              <span>Versement mobilite</span>
+              <span>Versement mobilité</span>
             </div>
             <div class="switch" aria-hidden="true"></div>
           </div>
@@ -1759,8 +1759,8 @@ body {
             </div>
             <div id="vm-warn" class="alert info" style="display:none;margin-top:10px">
               <span class="alert-icon">&#x2139;&#xFE0F;</span>
-              <span>Entreprises &#x2265;&#x00A0;50 salaries dans les zones concernees : versement mobilite
-              <strong>obligatoire</strong>. Verifiez sur urssaf.fr.</span>
+              <span>Entreprises &#x2265;&#x00A0;50 salariés dans les zones concernées : versement mobilité
+              <strong>obligatoire</strong>. Vérifiez sur urssaf.fr.</span>
             </div>
           </div>
         </div>
@@ -1772,13 +1772,13 @@ body {
             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleOpt('medecine')}">
             <div class="opt-toggle-left">
               <span class="opt-toggle-icon" aria-hidden="true">&#x2695;&#xFE0F;</span>
-              <span>Medecine du travail (SPSTI)</span>
+              <span>Médecine du travail (SPSTI)</span>
             </div>
             <div class="switch" aria-hidden="true"></div>
           </div>
           <div class="opt-body" id="body-medecine">
             <div class="field">
-              <label class="field-label" for="medecineMontant">Cout annuel par salarie (&#x20AC;)</label>
+              <label class="field-label" for="medecineMontant">Coût annuel par salarié (&#x20AC;)</label>
               <input type="number" id="medecineMontant" value="115" min="0" oninput="recalc()">
               <div class="field-note">
                 Fourchette nationale&#x00A0;: 80&#x2013;200&#x00A0;&#x20AC;/an.
@@ -1843,7 +1843,7 @@ body {
           </div>
 
           <div class="mult-banner">
-            Pour 1&#x00A0;&#x20AC; de salaire net verse, vous depensez reellement
+            Pour 1&#x00A0;&#x20AC; de salaire net verse, vous dépensez réellement
             <strong id="multiplierValue">&#x2014;</strong>
           </div>
 
@@ -1867,7 +1867,7 @@ body {
     <div class="aff-card">
       <div class="aff-icon">&#x1F916;</div>
       <h3>Automatisez votre paie</h3>
-      <p>Logiciels de paie conformes DSN, fiches de paie automatisees.</p>
+      <p>Logiciels de paie conformes DSN, fiches de paie automatisées.</p>
       <a href="https://www.payfit.com" target="_blank" rel="noopener noreferrer" class="aff-cta">
         Decouvrir PayFit &#x2192;
       </a>
@@ -1875,7 +1875,7 @@ body {
     <div class="aff-card">
       <div class="aff-icon">&#x1F465;</div>
       <h3>Accompagnement RH</h3>
-      <p>Obtenez un accompagnement RH personnalise pour votre budget recrutement.</p>
+      <p>Obtenez un accompagnement RH personnalisé pour votre budget recrutement.</p>
       <a href="https://www.alan.com" target="_blank" rel="noopener noreferrer" class="aff-cta">
         Comparer les solutions &#x2192;
       </a>
