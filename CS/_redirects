@@ -1,7 +1,7 @@
 # Redirections cloudfare
 # Les URLs sans .html redirigent vers les fichiers HTML
 
-/confidentialite     /confidentialite.html   200
+/confidentialite     /confidentialite.html   301
 /confidentialite/    /confidentialite.html   301
 /privacy             /confidentialite.html   301
 /mentions            /confidentialite.html   301
