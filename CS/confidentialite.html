@@ -2,7 +2,14 @@
 <html lang="fr" data-theme="">
 <head>
 <meta charset="UTF-8">
-
+<script>
+(function(){
+  var t = localStorage.getItem('theme');
+  if(t === 'dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+  }
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politique de confidentialité — Coût Salarié</title>
 <meta name="description" content="Politique de confidentialité, RGPD et conditions d'utilisation de Coût Salarié. Vos données restent sur votre appareil.">
