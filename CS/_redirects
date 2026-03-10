@@ -3,6 +3,3 @@
 
 /confidentialite    /confidentialite.html   200
 /privacy            /confidentialite.html   301
-
-# Fallback 404
-/*  /404.html  404
