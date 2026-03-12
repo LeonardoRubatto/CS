@@ -1576,7 +1576,7 @@ body {
         </div>
 
         <div class="scope-note">
-          <strong>Perimetre&#x00A0;:</strong> salaire net&#x00A0;=&#x00A0;<em>net avant impot sur le revenu</em>
+          <strong>Périmètre&#x00A0;:</strong> salaire net&#x00A0;=&#x00A0;<em>net avant impôt sur le revenu</em>
           (prélevement à la source non inclus). Hors bonus-malus chômage, avantages en nature, accords de branche.
           <br><strong>Transparence&#x00A0;:</strong> AT/MP&#x00A0;= taux estimatif sectoriel,
           DOM-TOM non modelisé (taux métropole affichés).
@@ -1594,7 +1594,7 @@ body {
             <label class="field-label" id="salLabel" for="salInput">Salaire net mensuel (&#x20AC;)</label>
             <input type="number" id="salInput" min="0" max="99999" step="50"
               placeholder="Ex : 2 500" oninput="onSalInput(this.value,'input')">
-            <div class="field-note" id="salNote">Salaire net avant impot sur le revenu souhaité</div>
+            <div class="field-note" id="salNote">Salaire net avant impôt sur le revenu souhaité</div>
           </div>
           <div class="slider-wrap">
             <input type="range" class="range-input" id="salSlider"
@@ -2068,13 +2068,13 @@ body {
   aria-labelledby="modalTitle" onclick="closeModalOverlay(event)">
   <div class="modal-box">
     <div class="modal-head">
-      <h2 id="modalTitle">Transparence des donnees</h2>
+      <h2 id="modalTitle">Transparence des données</h2>
       <button type="button" class="modal-close-btn" onclick="closeModal()"
         aria-label="Fermer la fenetre">&#x2715;</button>
     </div>
     <div class="modal-tabs-bar">
       <button type="button" class="modal-tab active"
-        onclick="switchTab('taux',this)">Taux utilises</button>
+        onclick="switchTab('taux',this)">Taux utilisés</button>
       <button type="button" class="modal-tab"
         onclick="switchTab('sources',this)">Sources officielles</button>
     </div>
@@ -2084,7 +2084,7 @@ body {
           <thead>
             <tr>
               <th>Cotisation</th><th>Taux</th><th>Assiette</th>
-              <th>Reference legale</th><th>Depuis</th>
+              <th>Référence legale</th><th>Depuis</th>
             </tr>
           </thead>
           <tbody id="sourcesBody"></tbody>
@@ -2092,7 +2092,7 @@ body {
       </div>
       <div class="modal-pane" id="pane-sources">
         <div class="last-check-box">
-          &#x1F550; Derniere verification manuelle&#x00A0;: <strong>4 mars 2026</strong><br>
+          &#x1F550; Derniere vérification manuelle&#x00A0;: <strong>4 mars 2026</strong><br>
           Erreur ou taux modifie&#x00A0;?
           <a href="mailto:bonaventis@gmail.com">bonaventis@gmail.com</a>
         </div>
@@ -2178,20 +2178,20 @@ var CFG = Object.freeze({
 });
 
 var SOURCES = [
-  {n:"Assurance maladie (patronale)",t:"13,00 %",a:"Totalite",s:"CSS art. L.241-2",u:"https://www.legifrance.gouv.fr",d:"01/01/2026"},
-  {n:"Maladie supp. Alsace-Moselle (pat.)",t:"+1,50 %",a:"Totalite",s:"Regime local",u:"https://www.ameli.fr",d:"01/01/2024"},
-  {n:"Maladie sal. Alsace-Moselle",t:"+1,30 %",a:"Totalite",s:"Regime local",u:"https://www.ameli.fr",d:"01/01/2024"},
+  {n:"Assurance maladie (patronale)",t:"13,00 %",a:"Totalité",s:"CSS art. L.241-2",u:"https://www.legifrance.gouv.fr",d:"01/01/2026"},
+  {n:"Maladie supp. Alsace-Moselle (pat.)",t:"+1,50 %",a:"Totalité",s:"Regime local",u:"https://www.ameli.fr",d:"01/01/2024"},
+  {n:"Maladie sal. Alsace-Moselle",t:"+1,30 %",a:"Totalité",s:"Regime local",u:"https://www.ameli.fr",d:"01/01/2024"},
   {n:"Vieillesse plafonnee (pat.)",t:"8,55 %",a:"<= PMSS (4 005 EUR)",s:"CSS art. L.241-3",u:"https://www.legifrance.gouv.fr",d:"01/07/2012"},
-  {n:"Vieillesse deplafonnee (pat.)",t:"2,11 %",a:"Totalite",s:"Decret n.2025-1446",u:"https://www.legifrance.gouv.fr",d:"01/01/2026"},
+  {n:"Vieillesse deplafonnee (pat.)",t:"2,11 %",a:"Totalité",s:"Decret n.2025-1446",u:"https://www.legifrance.gouv.fr",d:"01/01/2026"},
   {n:"Vieillesse plafonnee (sal.)",t:"6,90 %",a:"<= PMSS",s:"CSS art. L.241-3",u:"https://www.legifrance.gouv.fr",d:"01/01/2013"},
-  {n:"Vieillesse deplafonnee (sal.)",t:"0,40 %",a:"Totalite",s:"CSS art. L.241-3",u:"https://www.legifrance.gouv.fr",d:"01/01/2013"},
+  {n:"Vieillesse deplafonnee (sal.)",t:"0,40 %",a:"Totalité",s:"CSS art. L.241-3",u:"https://www.legifrance.gouv.fr",d:"01/01/2013"},
   {n:"CSA",t:"0,30 %",a:"Totalite",s:"Loi n.2004-626",u:"https://www.legifrance.gouv.fr",d:"01/07/2004"},
-  {n:"Allocations familiales",t:"5,25 %",a:"Totalite (taux unique 2026)",s:"CSS art. L.241-6",u:"https://www.legifrance.gouv.fr",d:"01/01/2026"},
+  {n:"Allocations familiales",t:"5,25 %",a:"Totalité (taux unique 2026)",s:"CSS art. L.241-6",u:"https://www.legifrance.gouv.fr",d:"01/01/2026"},
   {n:"FNAL (< 50 sal.)",t:"0,10 %",a:"<= PMSS",s:"CSS art. L.834-1",u:"https://www.legifrance.gouv.fr",d:"01/01/1992"},
-  {n:"FNAL (>= 50 sal.)",t:"0,50 %",a:"Totalite",s:"CSS art. L.834-1",u:"https://www.legifrance.gouv.fr",d:"01/01/1992"},
+  {n:"FNAL (>= 50 sal.)",t:"0,50 %",a:"Totalité",s:"CSS art. L.834-1",u:"https://www.legifrance.gouv.fr",d:"01/01/1992"},
   {n:"Assurance chomage (pat.)",t:"4,00 %",a:"<= 4 PMSS",s:"Convention Unedic 2024",u:"https://www.unedic.org",d:"01/01/2024"},
   {n:"AGS",t:"0,25 %",a:"<= 4 PMSS",s:"CSS art. L.143-11-4",u:"https://www.ags-garantie-salariale.fr",d:"01/01/2024"},
-  {n:"Dialogue social",t:"0,016 %",a:"Totalite",s:"Loi n.2014-288",u:"https://www.legifrance.gouv.fr",d:"01/01/2015"},
+  {n:"Dialogue social",t:"0,016 %",a:"Totalité",s:"Loi n.2014-288",u:"https://www.legifrance.gouv.fr",d:"01/01/2015"},
   {n:"AGIRC-ARRCO T1 (pat.)",t:"4,72 %",a:"<= 1 PMSS",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2023"},
   {n:"AGIRC-ARRCO T2 (pat.)",t:"12,95 %",a:"1 a 8 PMSS",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2023"},
   {n:"AGIRC-ARRCO T1 (sal.)",t:"3,15 %",a:"<= 1 PMSS",s:"Accord AGIRC-ARRCO",u:"https://www.agirc-arrco.fr",d:"01/01/2023"},
@@ -2205,10 +2205,10 @@ var SOURCES = [
   {n:"Prevoyance cadre (pat.)",t:"1,50 %",a:"<= PMSS (minimum ANI)",s:"ANI 1983 / Code trav.",u:"https://www.legifrance.gouv.fr",d:"01/01/1983"},
   {n:"APEC (pat.)",t:"0,036 %",a:"<= 4 PMSS (cadres)",s:"Convention APEC",u:"https://www.apec.fr",d:"01/01/2019"},
   {n:"APEC (sal.)",t:"0,024 %",a:"<= 4 PMSS (cadres)",s:"Convention APEC",u:"https://www.apec.fr",d:"01/01/2019"},
-  {n:"Formation pro (< 50 sal.)",t:"0,55 %",a:"Totalite",s:"Code du travail",u:"https://www.legifrance.gouv.fr",d:"01/01/2019"},
-  {n:"Formation pro (>= 50 sal.)",t:"1,00 %",a:"Totalite",s:"Code du travail",u:"https://www.legifrance.gouv.fr",d:"01/01/2019"},
-  {n:"Taxe apprentissage",t:"0,68 %",a:"Totalite",s:"CGI art. 1599 ter A",u:"https://www.legifrance.gouv.fr",d:"01/01/2020"},
-  {n:"PEEC logement (>= 50 sal.)",t:"0,45 %",a:"Totalite",s:"CCH art. L.313-1",u:"https://www.legifrance.gouv.fr",d:"01/01/1992"},
+  {n:"Formation pro (< 50 sal.)",t:"0,55 %",a:"Totalité",s:"Code du travail",u:"https://www.legifrance.gouv.fr",d:"01/01/2019"},
+  {n:"Formation pro (>= 50 sal.)",t:"1,00 %",a:"Totalité",s:"Code du travail",u:"https://www.legifrance.gouv.fr",d:"01/01/2019"},
+  {n:"Taxe apprentissage",t:"0,68 %",a:"Totalité",s:"CGI art. 1599 ter A",u:"https://www.legifrance.gouv.fr",d:"01/01/2020"},
+  {n:"PEEC logement (>= 50 sal.)",t:"0,45 %",a:"Totalité",s:"CCH art. L.313-1",u:"https://www.legifrance.gouv.fr",d:"01/01/1992"},
   {n:"CSG deductible",t:"6,80 %",a:"98,25 % du brut",s:"CSS art. L.136-1",u:"https://www.legifrance.gouv.fr",d:"01/01/2018"},
   {n:"CSG non deductible",t:"2,40 %",a:"98,25 % du brut",s:"CSS art. L.136-1",u:"https://www.legifrance.gouv.fr",d:"01/01/2018"},
   {n:"CRDS",t:"0,50 %",a:"98,25 % du brut",s:"Ordonnance 96-50",u:"https://www.legifrance.gouv.fr",d:"01/02/1996"}
@@ -2216,10 +2216,10 @@ var SOURCES = [
 
 var SOURCE_LINKS = [
   {t:"URSSAF - Taux de cotisations 2026",d:"Table officielle des cotisations sociales",u:"https://www.urssaf.fr"},
-  {t:"Service-Public.fr - Cotisations employeur",d:"Fiche synthese charges patronales",u:"https://www.service-public.fr"},
-  {t:"AGIRC-ARRCO",d:"Retraite complementaire - baremes en vigueur",u:"https://www.agirc-arrco.fr"},
+  {t:"Service-Public.fr - Cotisations employeur",d:"Fiche synthèse charges patronales",u:"https://www.service-public.fr"},
+  {t:"AGIRC-ARRCO",d:"Retraite complementaire - barèmes en vigueur",u:"https://www.agirc-arrco.fr"},
   {t:"Legifrance - LFSS 2025 art. 18",d:"Reforme RGDU, decrets d'application",u:"https://www.legifrance.gouv.fr"},
-  {t:"Unedic - Convention assurance chomage",d:"Taux et modalites de cotisation",u:"https://www.unedic.org"}
+  {t:"Unedic - Convention assurance chômage",d:"Taux et modalités de cotisation",u:"https://www.unedic.org"}
 ];
 
 var state = {
@@ -2508,27 +2508,27 @@ function renderAlerts(res) {
   if (res.brut < smic) {
     html += '<div class="alert error"><span class="alert-icon">&#x26A0;&#xFE0F;</span>' +
       '<span>Salaire inferieur au SMIC legale (' + fmt2(smic) +
-      '/mois). Interdit sauf derogation expresse (apprentis, temps partiel proportionnel).</span></div>';
+      '/mois). Interdit sauf dérogation expresse (apprentis, temps partiel proportionnel).</span></div>';
   }
 
   if (res.p.contrat === 'cdd') {
     html += '<div class="alert warn"><span class="alert-icon">&#x1F4CB;</span>' +
-      '<span>CDD : prime de precarite de 10&#x00A0;% sur le salaire brut cumule generalement' +
+      '<span>CDD : prime de precarité de 10&#x00A0;% sur le salaire brut cumulé généralement' +
       ' due en fin de contrat (soit environ ' + fmt2(res.brut * 0.10) +
       '/mois si on la lisse). Non incluse dans ce calcul.</span></div>';
   }
 
   if (res.rgdu.applicable) {
     html += '<div class="alert info"><span class="alert-icon">&#x2705;</span>' +
-      '<span>Reduction RGDU 2026 applicable : economie de <strong>' +
+      '<span>Réduction RGDU 2026 applicable : économie de <strong>' +
       fmt2(res.rgdu.reduction) + '/mois</strong> (coeff.&#x00A0;' +
       (res.rgdu.coeff * 100).toFixed(2) + '&#x00A0;% du brut).</span></div>';
   }
 
   if (res.p.region === 'dom') {
     html += '<div class="alert warn"><span class="alert-icon">&#x1F334;</span>' +
-      '<span>DOM-TOM : les exonerations LODEOM ne sont pas modelisees.' +
-      ' Les resultats correspondent aux taux metropole et sont <strong>surestimates</strong>.' +
+      '<span>DOM-TOM : les exonérations LODEOM ne sont pas modelisées.' +
+      ' Les résultats correspondent aux taux métropole et sont <strong>surestimés</strong>.' +
       ' Contactez votre URSSAF locale.</span></div>';
   }
 
@@ -2809,9 +2809,9 @@ function updateRegionNote() {
   var region = document.querySelector('input[name="region"]:checked').value;
   var msg = {
     metro:  '',
-    alsace: 'Regime local : maladie patronale +1,50 % et salariale +1,30 % sur la totalite du brut.',
-    dom:    'DOM-TOM : les allegements LODEOM (LADOM, ZFU...) ne sont pas modelises. ' +
-            'Les resultats affiches correspondent aux taux metropole et sont SURESTIMATES. ' +
+    alsace: 'Régime local : maladie patronale +1,50 % et salariale +1,30 % sur la totalite du brut.',
+    dom:    'DOM-TOM : les allègements LODEOM (LADOM, ZFU...) ne sont pas modelisés. ' +
+            'Les resultats affichés correspondent aux taux métropole et sont SURESTIMÉS. ' +
             'Consultez votre URSSAF locale.'
   };
   var el = document.getElementById('regionNote');
@@ -2834,7 +2834,7 @@ function updateTRNote() {
            ' : exces mensuel ' + fmt2(excess) +
            ' soumis a cotisations (surcharge ~45 % incluse dans le total).';
   }
-  msg += ' \u2192 Cout total mensuel : ' + fmt2(rawPat * jours);
+  msg += ' \u2192 Coût total mensuel : ' + fmt2(rawPat * jours);
   el.textContent = msg;
 }
 
@@ -3054,10 +3054,10 @@ function exportPDF(btn) {
           ['Salaire net (avant IR)',         fmt2(res.net),           false],
           ['Charges salariales',             fmt2(res.sal.total),     false],
           ['Charges patronales brutes',      fmt2(res.pat.total),     false],
-          ['Reduction RGDU 2026',            res.rgdu.applicable
+          ['Réduction RGDU 2026',            res.rgdu.applicable
             ? ('- ' + fmt2(res.rgdu.reduction)) : 'N/A',             false],
           ['Charges patronales nettes',      fmt2(res.coutNet),       false],
-          ['Complements employeur',          fmt2(res.extra),         false],
+          ['Compléments employeur',          fmt2(res.extra),         false],
           ['COUT TOTAL MENSUEL',             fmt2(res.total),         true],
           ['COUT TOTAL ANNUEL',              fmt2(res.annuel),        true],
           ['Multiplicateur net',             'x ' + res.mult.toFixed(2), true]
