@@ -1,20 +1,16 @@
-# CoutSalarie.fr
+# Calculateur Coût Salarié
 
-**Domaine :** coutsalarie.fr  
-**Langue :** fr  
-**Catégorie :** finance  
-**Couleur accent :** `#1D4ED8` (blue)
+> Calculateur de charges patronales et coût réel d'un recrutement — barèmes URSSAF 2026  
+> Domaine : https://salaire.wecalc.fr · Langue : fr · Catégorie : Finance · Accent : `#1D4ED8`
 
-## Fonctionnalités clés
+## Fonctionnalités
 
-- Calcul du coût total employeur à partir du salaire net ou brut
-- Réduction RGDU 2026 (LFSS 2025 art. 18) — seuil élargi à 3 SMIC, coefficient dégressif exact
-- Options compléments : mutuelle collective, tickets restaurant, transport, versement mobilité, médecine du travail
-- Statut cadre/non-cadre, effectif, région (France métro / Alsace-Moselle / DOM-TOM), secteur AT/MP
-- Breakdown complet cadre par cadre (charges salariales + patronales + compléments + réduction RGDU)
-- Export PDF, partage par URL avec état encodé
-- Dark mode avec anti-flash et icônes SVG locales
-- Portal bridge `window.__CALC_STATE__`
+- Calcul du coût employeur total à partir d'un salaire brut : cotisations patronales URSSAF 2026 détaillées ligne par ligne (maladie, retraite, chômage, accidents du travail, formation, etc.)
+- Calcul inverse : estimation du salaire brut atteignable pour un budget employeur donné
+- Décomposition complète : salaire brut → cotisations salariales → salaire net → coût total employeur
+- Prise en compte des cas particuliers : statut cadre / non-cadre, secteurs d'activité, taux AT/MP configurables
+- Partage de résultat par URL encodée, export PDF, dark mode, cookie banner RGPD, responsive mobile
+- 4 blocs JSON-LD : `WebApplication`, `WebSite`, `BreadcrumbList`, `FAQPage` — rich results Google activés
 
 ## Structure des fichiers
 
@@ -23,58 +19,80 @@ CS/
 ├── index.html
 ├── confidentialite.html
 ├── 404.html
+├── _headers
 ├── robots.txt
 ├── sitemap.xml
 ├── readme.md
-├── _headers
-├── assets/
-│   └── icons/
-│       ├── warning.svg
-│       ├── info.svg
-│       ├── error.svg
-│       ├── success.svg
-│       ├── share.svg
-│       ├── pdf.svg
-│       ├── sources.svg
-│       ├── theme-dark.svg
-│       ├── theme-light.svg
-│       ├── france.svg
-│       └── [icônes domaine complémentaires]
-├── favicon.png          (32×32)
-├── apple-touch-icon.png (180×180)
-└── og-image.png         (1200×630)
+├── favicon.png
+├── apple-touch-icon.png
+├── og-image.png
+└── assets/
+    └── icons/
+        ├── logo-fibo4.svg
+        ├── arrow.svg
+        ├── bank.svg
+        ├── bonus.svg
+        ├── brief.svg
+        ├── calc.svg
+        ├── card.svg
+        ├── cube.svg
+        ├── egal.svg
+        ├── error.svg
+        ├── europe.svg
+        ├── exam.svg
+        ├── france.svg
+        ├── info.svg
+        ├── op.svg
+        ├── pdf.svg
+        ├── receipt-duotone.svg
+        ├── share.svg
+        ├── sources.svg
+        ├── sources-dark.svg
+        ├── student.svg
+        ├── success.svg
+        ├── theme-dark.svg
+        ├── theme-light.svg
+        ├── wallet-duotone.svg
+        └── warning.svg
 ```
 
-## Icônes
+## Icônes SVG requises
 
-Installer les fichiers SVG dans `/assets/icons/`.  
-Icônes canoniques requises : `warning.svg`, `info.svg`, `error.svg`, `success.svg`, `share.svg`, `pdf.svg`, `sources.svg`, `theme-dark.svg`, `theme-light.svg`, `france.svg`
+Installer dans `/assets/icons/` : `logo-fibo4.svg`, `arrow.svg`, `bank.svg`, `bonus.svg`, `brief.svg`, `calc.svg`, `card.svg`, `cube.svg`, `egal.svg`, `error.svg`, `europe.svg`, `exam.svg`, `france.svg`, `info.svg`, `op.svg`, `pdf.svg`, `receipt-duotone.svg`, `share.svg`, `sources.svg`, `sources-dark.svg`, `student.svg`, `success.svg`, `theme-dark.svg`, `theme-light.svg`, `wallet-duotone.svg`, `warning.svg`
 
 ## Sources des données
 
-| Source | Vérification |
-|--------|-------------|
-| URSSAF — Taux de cotisations 2026 | 01/01/2026 |
-| LFSS 2025 art. 18 — Réforme RGDU (Légifrance) | 01/01/2026 |
-| AGIRC-ARRCO — Accord du 01/11/2023 | 01/01/2023 |
-| Convention Unédic 2024 | 01/01/2024 |
-| Décret n°2025-1446 — Vieillesse déplafonnée | 01/01/2026 |
-| Service-Public.fr — Cotisations employeur | 01/01/2026 |
+| Source | Organisme | URL | Vérifié le |
+|--------|-----------|-----|------------|
+| Taux de cotisations patronales et salariales 2026 | URSSAF | https://www.urssaf.fr/accueil/employeur/calcul-des-cotisations.html | 2026-03-21 |
+| Plafond annuel de la Sécurité Sociale (PASS) 2026 | URSSAF / Sécurité Sociale | https://www.urssaf.fr | 2026-03-21 |
+| Taux de cotisation chômage (AGS, APEC) | France Travail / AGIRC-ARRCO | https://www.francetravail.fr | 2026-03-21 |
+| Taux retraite complémentaire cadres / non-cadres | AGIRC-ARRCO | https://www.agirc-arrco.fr | 2026-03-21 |
+| Contribution patronale formation professionnelle | OPCO | https://travail-emploi.gouv.fr | 2026-03-21 |
 
 ## Déploiement
 
-Push sur GitHub → Cloudflare Pages détecte le commit et déploie automatiquement.  
-Aucun outil de build requis — site statique pur HTML/CSS/JS.
+Push GitHub → Cloudflare Pages. Aucun outil de build. Le dossier `CS/` est la racine du site.
+
+```bash
+git add .
+git commit -m "update: [description courte]"
+git push origin main
+```
+
+Cloudflare Pages détecte le push et redéploie automatiquement en ~30 secondes.
 
 ## Mise à jour des données
 
-Fréquence recommandée : **annuelle** (voire semestrielle — certains taux URSSAF changent en juillet).  
-Prochaine vérification recommandée : **01/01/2027** — vérifier URSSAF, Unédic, AGIRC-ARRCO et Légifrance pour LFSS suivante.
+- Fréquence recommandée : annuelle — vérifier en janvier (nouveaux barèmes URSSAF et PASS)
+- Prochaine vérification : janvier 2027
+- Fichiers à mettre à jour : `index.html` (constantes dans `CFG` : taux, PASS, plafonds), `sitemap.xml` (`lastmod`)
 
-## Assets graphiques
+## Assets graphiques à produire manuellement
 
 | Fichier | Dimensions | Contenu |
-|---------|-----------|---------|
+|---------|------------|---------|
 | `favicon.png` | 32×32 px | Fond `#1D4ED8`, lettres **C€** en blanc, bold, centré |
-| `apple-touch-icon.png` | 180×180 px | Même design que favicon — iOS ajoute automatiquement les coins arrondis |
-| `og-image.png` | 1200×630 px | Fond `#dde6ef`, card blanche centrée avec logo + « CoutSalarie.fr » + « Calcul du coût réel d'un salarié 2026 » |
+| `apple-touch-icon.png` | 180×180 px | Même design — iOS arrondit automatiquement les coins |
+| `og-image.png` | 1200×630 px | Fond `#dde6ef`, card blanche centrée : logo + "Calculateur Charges Patronales 2026 — Coût Réel d'un Salarié" |
+
